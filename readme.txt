@@ -4,7 +4,7 @@ Donate link: http://www.tagonline.org.uk/howtodonate.asp
 Tags: events, gigs, performances
 Requires at least: 3.4.1
 Tested up to: 3.4.1
-Stable tag: trunk
+Stable tag: v1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,10 +39,16 @@ There's a .po file in the plugin that you can use with a tool like po edit if yo
 
 == Changelog ==
 
+= 1.1 =
+* Readme cleaned up
+
 = 1.0 =
 * Initial version
 
 == Upgrade Notice ==
+
+= 1.1 =
+Readme cleaned up
 
 = 1.0 =
 New and shiny stuff is cool!
