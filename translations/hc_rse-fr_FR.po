@@ -1,0 +1,296 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Really-simple-events 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-26 02:10+0100\n"
+"PO-Revision-Date: 2012-08-26 03:26+0100\n"
+"Last-Translator: Huntly Cameron <huntly.cameron@gmail.com>\n"
+"Language-Team: Huntly Cameron <huntly.cameron@gmail.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events\n"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:94
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:132
+msgid "More Info"
+msgstr "Plus d'infos"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:95
+msgid "Hide Info"
+msgstr "Cacher les infos"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:173
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:56
+msgid "Upcoming Events"
+msgstr "Événements à venir"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:174
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:48
+msgid "Events (Upcoming)"
+msgstr "Evénements à venir"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:175
+msgid "Past Events"
+msgstr "Événements passés"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:176
+msgid "Events (Past)"
+msgstr "Événements (sortant)"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:177
+msgid "Are you sure you want to delete this event?"
+msgstr "Êtes-vous sûr de vouloir supprimer cet événement?"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:245
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:246
+msgid "Events"
+msgstr "Événements"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:256
+msgid "View Events"
+msgstr "Afficher les événements"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:257
+msgid "All Events"
+msgstr "Tous les événements"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:265
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:69
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:110
+msgid "Add Event"
+msgstr "Ajouter un évènement"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:266
+msgid "Add New"
+msgstr "Ajouter un nouveau"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:272
+msgid "Events Settings"
+msgstr "Réglages événements"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:273
+msgid "Settings"
+msgstr "Réglages"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:279
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:280
+msgid "Help/Usage"
+msgstr "Aide / utilisation"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:40
+msgid "Edit"
+msgstr "Éditer"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:41
+msgid "Delete"
+msgstr "Effacer"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:51
+msgid "Event Deleted"
+msgstr "Événement Deleted"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:56
+msgid "Past"
+msgstr "Passé"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:63
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:82
+msgid "Date"
+msgstr "Date"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:63
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:82
+msgid "Title"
+msgstr "Titre"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:71
+msgid "No upcoming events to show, go and "
+msgstr "Aucun événement à venir pour montrer, aller"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:71
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:75
+msgid "add one"
+msgstr "ajouter une"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:75
+msgid "No events to show, go and "
+msgstr "Aucun événement pour montrer, allez"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:2
+msgid "Help and Usage Instructions"
+msgstr "Aide et Instructions d'utilisation"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:3
+msgid "Here you should find everything you need to get up and running with this plugin.  For any extra help, use the Wordpress forums or send me an email"
+msgstr "Ici, vous devriez trouver tout ce dont vous avez besoin pour se lever et courir avec ce plugin. Pour toute aide supplémentaire, utilisez les forums Wordpress ou envoyez-moi un e-mail"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:4
+msgid "Getting Started"
+msgstr "Mise en route"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:5
+msgid "Adding and editing events should be quite straight forward, it&#39;s worthwhile to note that if you don&#39;t provide any extra information for an event, the link will not show on the front end, although the empty table cell will remain"
+msgstr "Ajout et modification des événements devrait être assez simple, il est intéressant de noter que si vous ne fournissez pas les informations supplémentaires pour un événement, le lien ne sera pas affiché sur l'extrémité avant, bien que la cellule vide du tableau restera"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:6
+msgid "Short Codes"
+msgstr "Short Codes"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:7
+msgid "To show your upcoming events on a page or post just use this short code"
+msgstr "Pour afficher vos événements à venir sur une page ou post juste utiliser ce code court"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:7
+msgid "If you wish to show past events only, you can use the &#39;showevents&#39; attribute with one of the following values."
+msgstr "Si vous souhaitez afficher les événements passés uniquement, vous pouvez utiliser l'attribut showevents avec l'une des valeurs suivantes."
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:9
+msgid "show both past and upcoming events."
+msgstr "montrent à la fois les événements passés et à venir."
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:10
+msgid "only show the events that have happened already."
+msgstr "n'afficher que les événements qui ont eu lieu déjà."
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:11
+msgid "show only upcoming events (note this is the default behaviour when the showevents attribute is omitted)."
+msgstr "n'afficher que les événements à venir (noter qu'il s'agit du comportement par défaut lorsque l'attribut est omis showevents)."
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:13
+msgid "For example, to show all past and upcoming events use this short code"
+msgstr "Par exemple, pour afficher tous les événements passés et à venir utiliser ce code court"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:14
+msgid "Advanced"
+msgstr "avancé"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:15
+msgid "For theme developers, here are the event table css classes you can use to style the output"
+msgstr "Pour les développeurs thème, voici l'événement de table classes CSS que vous pouvez utiliser pour le style de la sortie"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:17
+msgid "the main event table"
+msgstr "le tableau principal événement"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:18
+msgid "the table cell which holds the event date"
+msgstr "la cellule du tableau qui contient la date de l'événement"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:19
+msgid "the table cell which holds the start time"
+msgstr "la cellule du tableau qui contient les temps de début"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:20
+msgid "the table cell which holds the event title"
+msgstr "la cellule du tableau qui contient le titre de l'événement"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:21
+msgid "the more info link"
+msgstr "le lien plus d'infos"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:22
+msgid "the table cell which holds the event information"
+msgstr "la cellule du tableau qui contient les informations d'événement"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:24
+msgid "You can also stop the custom CSS and JavaScript files being included in the page by using the &#39;noassets&#39; attribute. e.g. "
+msgstr "Vous pouvez également arrêter la coutume fichiers CSS et JavaScript sont inclus dans la page en utilisant l'attribut ne détient aucun actif. par exemple"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:9
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:15
+msgid "Options Updated"
+msgstr "Options de mise à jour"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:21
+msgid "Really Simple Event Settings"
+msgstr "Réglages événements"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:28
+msgid "Not sure what to do? "
+msgstr "Vous ne savez pas quoi faire?"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:28
+msgid "Click here for more info"
+msgstr "Cliquez ici pour plus d'informations"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:30
+msgid "You change change the format for the date and time via these options.  This is how it will appear when you use the plugin short-code to output the events."
+msgstr "Vous changez modifier le format de la date et de l'heure par l'intermédiaire de ces options. C'est ainsi qu'il apparaîtra lorsque vous utilisez le plugin court-code pour générer les événements."
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:31
+msgid "Here are a few common date patterns"
+msgstr "Here are a few common date patterns"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:37
+msgid "Here are few common time patterns"
+msgstr "Voici quelques tendances temporelles communes"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:50
+msgid "Date Format"
+msgstr "Format de date"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:54
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:63
+msgid "Accepts any "
+msgstr "Accepte tout"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:54
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:63
+msgid "PHP date format string"
+msgstr "Chaîne de format de date PHP"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:59
+msgid "Time Format"
+msgstr "Format de l'heure"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:67
+msgid "Update Options"
+msgstr "Mise à jour de l'événement"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:32
+msgid "Please enter a title"
+msgstr "S'il vous plaît entrez un titre"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:33
+msgid "Date/Time should be in the following format: yyyy-mm-dd HH:MM"
+msgstr "Date / heure doit être au format suivant: yyyy-mm-dd HH:MM"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:61
+msgid "Could not create event! HELP!!"
+msgstr "Impossible de créer l'événement! AIDE!"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:63
+msgid "Event Updated: "
+msgstr "Evénement Mise à jour:"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:69
+msgid "Edit Event"
+msgstr "Modifier un événement"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:81
+msgid "Event Added: "
+msgstr "Ajouté événement:"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:94
+msgid "Event Title"
+msgstr "Titre de l'événement"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:98
+msgid "Event Date/Time"
+msgstr "Date de l'événement / Heure:"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:104
+msgid "Extra Event Info"
+msgstr "Information sur l'événement supplémentaire:"
+
+#: /srv/http/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:110
+msgid "Update Event"
+msgstr "Mise à jour de l'événement"
+
