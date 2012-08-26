@@ -3,7 +3,7 @@
 Plugin Name: Really Simple Events
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Simple event module, just a title and start date/time needed!  You can, of course, provide extra information about the event if you wish.  This plugin was created for a bands/performers who do one off shows lasting a couple of hours rather than a few days, so event date ranges, custom post type and so on are not included.
-Version: 1.2
+Version: 1.2.1
 Author: Huntly Cameron
 Author URI: http://www.huntlycameron.co.uk
 License: GPL2
@@ -48,7 +48,7 @@ add_action( 'plugins_loaded' , 'hc_rse_first_run_check' );
 add_action( 'admin_menu' , 'hc_rse_build_admin_menu' );
 add_action( 'admin_init' , 'hc_rse_setup_custom_assets' );
 
-add_shortcode( 'rse_events' , 'hc_rse_display_events' );
+add_shortcode( 'hc_rse_events' , 'hc_rse_display_events' );
 /**
  * Parses the shortcode and displays the events.  The defalt is to only show
  * events which are happening from the current time onwards.  To change this

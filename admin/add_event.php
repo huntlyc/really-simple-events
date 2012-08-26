@@ -60,7 +60,7 @@
 			if( ! $isInserted ){
 				$errorMsg .= __( 'Could not create event! HELP!!' , 'hc_rse' );
 			}else{
-				$updateMsg .= __( 'Event Updated: ' , 'hc_rse' ) . $title;
+				$updateMsg .= __( 'Event Updated: ' , 'hc_rse' ) . stripslashes($title);
 			}
 		}
 	}	
@@ -78,7 +78,7 @@
 	<?php if(isset($_GET['msg']) || $updateMsg != ""): ?>
 		<div class="updated">
 			<p>
-				<strong><?php echo ( isset( $_GET['msg'] ) && $_GET['msg'] == 'added' ) ?  __( 'Event Added: ' , 'hc_rse' ) . $title : $updateMsg; ?></strong>
+				<strong><?php echo ( isset( $_GET['msg'] ) && $_GET['msg'] == 'added' ) ?  __( 'Event Added: ' , 'hc_rse' ) . stripslashes($title) : $updateMsg; ?></strong>
 			</p>
 		</div>
 	<?php endif; ?>
