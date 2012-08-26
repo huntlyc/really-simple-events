@@ -16,10 +16,6 @@ Simple event module, just a title and start date/time needed!  You can, of cours
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
-
-e.g.
-
 1. Extract to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Use the shortcode "[rse_events]" or "[rse_events showevents="upcoming|past|all]" in your pages.
