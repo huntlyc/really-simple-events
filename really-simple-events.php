@@ -3,7 +3,7 @@
 Plugin Name: Really Simple Events
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Simple event module, just a title and start date/time needed!  You can, of course, provide extra information about the event if you wish.  This plugin was created for a bands/performers who do one off shows lasting a couple of hours rather than a few days, so event date ranges, custom post type and so on are not included.
-Version: 0.1
+Version: 1.2
 Author: Huntly Cameron
 Author URI: http://www.huntlycameron.co.uk
 License: GPL2
