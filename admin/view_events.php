@@ -38,7 +38,7 @@
 				</td>
 				<td class="actions">
 					<a href="<?php bloginfo( 'url' ); ?>/wp-admin/admin.php?page=hc_rse_add_event&edit_id=<?php echo $event->id; ?>"><?php _e( 'Edit' , 'hc_rse' ); ?></a>&nbsp;&nbsp;|&nbsp;
-					<a class="delete" href="<?php bloginfo('url'); ?>/wp-admin/admin.php?page=hc_rse_event&delete_id=<?php echo $event->id; ?>"><?php _e( 'Delete' , 'hc_rse' ); ?></a>
+					<a class="hc_rse_delete" href="<?php bloginfo('url'); ?>/wp-admin/admin.php?page=hc_rse_event&delete_id=<?php echo $event->id; ?>"><?php _e( 'Delete' , 'hc_rse' ); ?></a>
 				</td>
 			</tr>
 		<?php endforeach;

@@ -59,7 +59,7 @@ jQuery(document).on('click', 'a[href="#past-events"]', function(event){
 jQuery(document).ready(function(){
 	rse_setupDatePicker();
 		
-	jQuery('a.delete').click(function(event){
+	jQuery('a.hc_rse_delete').click(function(event){
 		event.preventDefault()
 		if(confirm(objectL10n.DeleteConfirm)){		
 			//ajax remove the event and update the UI
