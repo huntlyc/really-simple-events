@@ -4,7 +4,7 @@ Donate link: http://www.tagonline.org.uk/howtodonate.asp
 Tags: events, gigs, performances
 Requires at least: 3.4.1
 Tested up to: 3.4.1
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,7 +18,7 @@ Simple event module, just a title and start date/time needed!  You can, of cours
 
 1. Extract to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Use the shortcode "[rse_events]" or "[rse_events showevents="upcoming|past|all]" in your pages.
+1. Use the shortcode "[hc_rse_events]" or "[hc_rse_events showevents="upcoming|past|all]" in your pages.
 
 == Frequently Asked Questions ==
 
@@ -39,6 +39,9 @@ There's a .po file in the plugin that you can use with a tool like po edit if yo
 
 == Changelog ==
 
+= 1.2.3 =
+Readme installation section
+
 = 1.2.2 =
 Fixed confirm box showing on all delete links
 
@@ -55,6 +58,9 @@ Everythings all up to date with the wp plugin hosting
 * Initial version
 
 == Upgrade Notice ==
+
+= 1.2.3 =
+Readme installation section
 
 = 1.2.2 =
 Fixed confirm box showing on all delete links
