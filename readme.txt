@@ -4,7 +4,7 @@ Donate link: http://www.tagonline.org.uk/howtodonate.asp
 Tags: events, gigs, performances
 Requires at least: 3.4.1
 Tested up to: 3.4.1
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,14 +39,8 @@ There's a .po file in the plugin that you can use with a tool like po edit if yo
 
 == Changelog ==
 
-= 1.2.3 =
-Readme installation section
-
-= 1.2.2 =
-Fixed confirm box showing on all delete links
-
-= 1.2.1 =
-Stripslashes for title in admin section
+= 1.2.4 =
+Added simple widget for sidebar use: $eventDate - $eventTitle
 
 = 1.2 =
 Everythings all up to date with the wp plugin hosting
@@ -58,6 +52,9 @@ Everythings all up to date with the wp plugin hosting
 * Initial version
 
 == Upgrade Notice ==
+
+= 1.2.4 =
+Added simple widget for sidebar use: $eventDate - $eventTitle
 
 = 1.2.3 =
 Readme installation section

@@ -3,7 +3,7 @@
 Plugin Name: Really Simple Events
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Simple event module, just a title and start date/time needed!  You can, of course, provide extra information about the event if you wish.  This plugin was created for a bands/performers who do one off shows lasting a couple of hours rather than a few days, so event date ranges, custom post type and so on are not included.
-Version: 1.2.3
+Version: 1.2.4
 Author: Huntly Cameron
 Author URI: http://www.huntlycameron.co.uk
 License: GPL2
@@ -47,6 +47,64 @@ add_action( 'plugins_loaded' , 'hc_rse_update_db_check' );
 add_action( 'plugins_loaded' , 'hc_rse_first_run_check' );
 add_action( 'admin_menu' , 'hc_rse_build_admin_menu' );
 add_action( 'admin_init' , 'hc_rse_setup_custom_assets' );
+
+//Add Sidebar widget
+
+//Create a sidebar widget
+function widget_hc_rse_event_widget($args) {
+    global $wpdb;
+    extract($args);	
+	$showevents = '';			
+	$table_name = $wpdb->prefix . HC_RSE_TABLE_NAME;
+	
+	//By default include the custom CSS and JS
+
+	wp_enqueue_style( "hc_rse_styles" ,
+					  plugin_dir_url( __FILE__ ) . "style.css" );
+	wp_enqueue_script( "hc_rse_event_table" , 
+					   plugin_dir_url( __FILE__ ) . "js/event-table.js" , 
+					   array( 'jquery' ) , 
+					   '1' , 
+					   true );
+	wp_localize_script( "hc_rse_event_table" , 
+					    'objectL10n' , 
+					    array( 'MoreInfo' => __( 'More Info' , 'hc_rse' ),
+						 	   'HideInfo' => __( 'Hide Info' , 'hc_rse' ) 
+							     )
+					  );
+	
+	$eventQuery = "SELECT * FROM $table_name WHERE start_date >= NOW() ORDER BY start_date ASC";	
+	$upcoming_events = $wpdb->get_results( $eventQuery );
+	
+	$eventHTML = "";
+	
+	if( $upcoming_events ){
+		$eventHTML .= '<ul>';
+		foreach($upcoming_events as $event){ 
+			
+			$eventHTML .= '    <li>';
+			$eventHTML .=          date( get_option( 'hc_rse_date_format' ) , 
+					                     strtotime( $event->start_date ) ) . ' - ' . stripslashes( $event->title ); 
+			$eventHTML .= '    </li>';			
+			
+		}
+		$eventHTML .= '</ul>';
+	}else{
+		$eventHTML = __("No Events", 'hc_rse'); 
+	}
+	
+
+	
+    echo $before_widget; 
+    echo $before_title . __('Upcoming Events', 'hc_rse') . $after_title;
+    //echo "HELLO";
+    echo $eventHTML;
+    echo $after_widget;
+
+}
+wp_register_sidebar_widget('HC_RSE_EVENT_WIDGET', 'Upcoming Events', 'widget_hc_rse_event_widget', array(                  // options
+        'description' => __('Shows upcoming events', 'hc_rse')
+    ));
 
 add_shortcode( 'hc_rse_events' , 'hc_rse_display_events' );
 /**
