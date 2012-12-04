@@ -3,8 +3,8 @@ Contributors: huntlyc
 Donate link: http://www.tagonline.org.uk/howtodonate.asp
 Tags: events, gigs, performances
 Requires at least: 3.4.1
-Tested up to: 3.4.1
-Stable tag: 1.2.5
+Tested up to: 3.5-RC2
+Stable tag: 1.2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,9 @@ There's a .po file in the plugin that you can use with a tool like po edit if yo
 
 == Changelog ==
 
+= 1.2.6 =
+Removed console.logs from JS
+
 = 1.2.5 =
 Choose which columns get displayed as well as choose not to show time value per individual event.
 
@@ -55,6 +58,9 @@ Everythings all up to date with the wp plugin hosting
 * Initial version
 
 == Upgrade Notice ==
+
+= 1.2.6 =
+Removed console.logs from JS
 
 = 1.2.5 =
 Choose which columns get displayed as well as choose not to show time value per individual event.
