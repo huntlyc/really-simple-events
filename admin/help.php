@@ -1,4 +1,4 @@
-<div class="wrap">	
+<div class="wrap">
 	<h2><?php _e( 'Help and Usage Instructions' , 'hc_rse' ); ?></h2>
 	<p><?php _e( 'Here you should find everything you need to get up and running with this plugin.  For any extra help, use the Wordpress forums or send me an email' , 'hc_rse' ); ?>: <a href="mailto:huntly.cameron@gmail.com" target="_blank">huntly.cameron@gmail.com</a></p>
 	<h3><?php _e( 'Getting Started' , 'hc_rse' ); ?></h3>
@@ -12,6 +12,17 @@
 	</ul>
 	<p><?php _e( 'For example, to show all past and upcoming events use this short code' , 'hc_rse' ); ?>: <strong>[hc_rse_events showevents='all']</strong></p>
 	<h3><?php _e( 'Advanced' , 'hc_rse' ); ?></h3>
+	<p><?php _e( 'Be careful with these things, you may break stuff!' , 'hc_rse' ); ?></p>
+	<h4><?php _e( 'Choosing columns and their order' , 'hc_rse' ); ?></h4>
+	<p><?php _e( 'You can choose and order the columns by using the columns attribute like so' , 'hc_rse'); ?>: <strong>[hc_rse_events columns="date,title"]</strong></p>
+	<p><?php _e( 'Valid column values are:' , 'hc_rse' ); ?></p>
+	<ul>
+		<li><strong>date</strong> - <?php _e( 'Date of the event, for instance: 21st December.' , 'hc_rse' ); ?></li>
+		<li><strong>time</strong> - <?php _e( 'Time of the event, for instance: 23:56.' , 'hc_rse' ); ?></li>
+		<li><strong>title</strong> - <?php _e( 'Title of the event, for instance: My Super Awesome Party!' , 'hc_rse' ); ?></li>
+		<li><strong>moreinfo</strong> - <?php _e( 'Shows the more info link which the user can view the extra details you entered.' , 'hc_rse' ); ?></li>
+	</ul>
+	<h4><?php _e( 'CSS Styling' , 'hc_rse' ); ?></h4>
 	<p><?php _e( 'For theme developers, here are the event table css classes you can use to style the output' , 'hc_rse' ); ?></p>
 	<ul>
 		<li><strong>table.hc_rse_events_table</strong> - <?php _e( 'the main event table' , 'hc_rse' ); ?>.</li>

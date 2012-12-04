@@ -4,7 +4,7 @@ Donate link: http://www.tagonline.org.uk/howtodonate.asp
 Tags: events, gigs, performances
 Requires at least: 3.4.1
 Tested up to: 3.4.1
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,9 @@ There's a .po file in the plugin that you can use with a tool like po edit if yo
 
 == Changelog ==
 
+= 1.2.5 =
+Choose which columns get displayed as well as choose not to show time value per individual event.
+
 = 1.2.4 =
 Added simple widget for sidebar use: $eventDate - $eventTitle
 
@@ -52,6 +55,9 @@ Everythings all up to date with the wp plugin hosting
 * Initial version
 
 == Upgrade Notice ==
+
+= 1.2.5 =
+Choose which columns get displayed as well as choose not to show time value per individual event.
 
 = 1.2.4 =
 Added simple widget for sidebar use: $eventDate - $eventTitle
