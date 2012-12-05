@@ -4,7 +4,7 @@ Donate link: http://www.tagonline.org.uk/howtodonate.asp
 Tags: events, gigs, performances
 Requires at least: 3.4.1
 Tested up to: 3.5-RC2
-Stable tag: 1.2.6
+Stable tag: 1.2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,9 @@ There's a .po file in the plugin that you can use with a tool like po edit if yo
 
 == Changelog ==
 
+= 1.2.7 =
+Fixed: Time column showing when no time is selected for viewing
+
 = 1.2.6 =
 Removed console.logs from JS
 
@@ -58,6 +61,9 @@ Everythings all up to date with the wp plugin hosting
 * Initial version
 
 == Upgrade Notice ==
+
+= 1.2.7 =
+Fixed: Time column showing when no time is selected for viewing
 
 = 1.2.6 =
 Removed console.logs from JS

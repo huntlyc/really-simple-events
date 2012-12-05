@@ -3,7 +3,7 @@
 Plugin Name: Really Simple Events
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Simple event module, just a title and start date/time needed!  You can, of course, provide extra information about the event if you wish.  This plugin was created for a bands/performers who do one off shows lasting a couple of hours rather than a few days, so event date ranges, custom post type and so on are not included.
-Version: 1.2.5
+Version: 1.2.7
 Author: Huntly Cameron
 Author URI: http://www.huntlycameron.co.uk
 License: GPL2
@@ -199,6 +199,17 @@ function hc_rse_display_events( $attibutes ){
 
 	if( $upcoming_events ){
 		$eventHTML .= '<table class="hc_rse_events_table">';
+		$isShowingATime = false;
+
+		//Loop through and see if we're showing a time
+		foreach($upcoming_events as $event){
+			foreach($columns as $column){
+				if($column == 'time' && $event->show_time == 1){
+					$isShowingATime = true;
+				}
+			}
+		}
+
 		foreach($upcoming_events as $event){
 			//Show only the relevent columns
 			$showMoreInfo = false;
@@ -212,14 +223,16 @@ function hc_rse_display_events( $attibutes ){
 						$eventHTML .= '    </td>';
 						break;
 					case 'time':
-						$eventHTML .= '    <td class="hc_rse_time">';
+						//Add column if we're showing a time
+						if($isShowingATime) $eventHTML .= '    <td class="hc_rse_time">';
 						//Only show time if it has been set in the event settings
 						if($event->show_time == 1){
 
 							$eventHTML .=          date( get_option( 'hc_rse_time_format' ) ,
 									                     strtotime( $event->start_date ) );
 						}
-						$eventHTML .= '    </td>';
+						//close column if we're showing a time
+						if($isShowingATime) $eventHTML .= '    </td>';
 						break;
 					case 'title':
 						$eventHTML .= '    <td class="hc_rse_title">';

@@ -29,7 +29,7 @@
 		//Setup vars from post
 		if( isset( $_POST['title'] ) ) $title = $_POST['title'];
 		if( isset( $_POST['start_date'] ) ) $startDate = $_POST['start_date'];
-		if( isset( $_POST['show_time'] ) && $_POST['show_time'] === "on" ) $showTime = 1;
+		$showTime = (isset( $_POST['show_time'] ) && $_POST['show_time'] === "on" ) ? 1 : 0;
 		if( isset( $_POST['extra_info'] ) ) $extraInfo = $_POST['extra_info'];
 
 
