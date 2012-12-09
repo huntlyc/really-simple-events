@@ -1,7 +1,7 @@
 <?php
 	global $wpdb;
 	$table_name = $wpdb->prefix . HC_RSE_TABLE_NAME;
-	
+
 	if(isset($_GET['delete_id'] ) && is_numeric( $_GET['delete_id'] ) ){
 		$wpdb->query( $wpdb->prepare( "DELETE FROM $table_name WHERE id=%d", $_GET['delete_id'] ) );
 		?>
@@ -11,20 +11,20 @@
 		<?php
 		exit();
 	}
-	
+
 	$upcoming_events = $wpdb->get_results( "SELECT * FROM $table_name WHERE start_date >= NOW() ORDER BY start_date ASC" );
-	$past_events = $wpdb->get_results( "SELECT * FROM $table_name WHERE start_date < NOW() ORDER BY start_date ASC" );
-		
+	$past_events = $wpdb->get_results( "SELECT * FROM $table_name WHERE start_date < NOW() ORDER BY start_date DESC" );
+
 	/**
 	 * Given a WPDB result set for the events table, prints the events table body
 	 * @param Object $events - WPDB result set
 	 */
 	function hs_rse_print_event_rows( $events = array() ){
-		
-		
+
+
 		//If there's nothing to print, exit function
 		if( ! is_array( $events ) || count( $events ) == 0 ) return;
-				
+
 		foreach( $events as $event ): ?>
 			<tr>
 				<td>
@@ -70,11 +70,11 @@
 	<?php elseif( $past_events ): ?>
 		<p id="no-upcoming"><?php _e( 'No upcoming events to show, go and ' , 'hc_rse' ); ?> <a href="<?php bloginfo( 'url' ); ?>/wp-admin/admin.php?page=hc_rse_add_event"><?php _e( 'add one' , 'hc_rse'); ?></a>.
 	<?php endif; ?>
-	
-	
+
+
 	<p id="no-events-mgs" <?php if($past_events || $upcoming_events) echo 'class="hidden"';?>><?php _e( 'No events to show, go and ' , 'hc_rse' ); ?> <a href="<?php bloginfo( 'url' ); ?>/wp-admin/admin.php?page=hc_rse_add_event"><?php _e( 'add one' , 'hc_rse' ); ?></a>.
-	
-	
+
+
 	<?php if( $past_events ): ?>
 		<table id="past-events" class="wp-list-table widefat fixed hidden">
 			<thead>
@@ -88,4 +88,4 @@
 		</table>
 	<?php endif; ?>
 </div>
-	
+
