@@ -69,9 +69,9 @@ Everythings all up to date with the wp plugin hosting
 
 == Upgrade Notice ==
 
-= 1.2.8 =
-Fixed: Admin Add/Edit/Delete links not working properly
-Updated: DB table now use utf8 instead of the default latin1 charset
+= 1.2.9 =
+* Fixed: Admin Add/Edit/Delete links not working properly
+* Updated: DB table now use utf8 instead of the default latin1 charset
 
 = 1.2.8 =
 Fixed: Past events showing up in wrong order (oldest first rather than newest first)
