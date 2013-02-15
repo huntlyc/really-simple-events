@@ -1,7 +1,7 @@
 <?php
 	global $wpdb;
 
-	$pageURL = get_bloginfo( 'url' ) . '/wp-admin/admin.php?page=hc_rse_add_event';
+	$pageURL = 'admin.php?page=hc_rse_add_event';
 
 	//Event variable
 	$title = "";

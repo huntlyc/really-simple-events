@@ -3,7 +3,7 @@
 Plugin Name: Really Simple Events
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Simple event module, just a title and start date/time needed!  You can, of course, provide extra information about the event if you wish.  This plugin was created for a bands/performers who do one off shows lasting a couple of hours rather than a few days, so event date ranges, custom post type and so on are not included.
-Version: 1.2.8
+Version: 1.2.9
 Author: Huntly Cameron
 Author URI: http://www.huntlycameron.co.uk
 License: GPL2
@@ -251,7 +251,8 @@ function hc_rse_display_events( $attibutes ){
 				$eventHTML .= '</tr>';
 				$eventHTML .= '<tr>';
 				$eventHTML .= '    <td colspan="4" id="hc_rse_extra_info_' . $showevents . '_' . $event->id . '" class="hc_rse_extra_info hidden">';
-				$eventHTML .=          apply_filters( 'the_content' , stripslashes($event->extra_info ) );
+				//$eventHTML .=          apply_filters( 'the_content' , stripslashes($event->extra_info ) );
+				$eventHTML .=          stripslashes(htmlentities( $event->extra_info ));
 				$eventHTML .= '    </td>';
 			}
 			$eventHTML .= '</tr>';
@@ -337,14 +338,15 @@ function hc_rse_plugin_install(){
 	global $wpdb;
 	global $hc_rse_db_version;
 	$table_name = $wpdb->prefix . HC_RSE_TABLE_NAME;
-	$sql = "CREATE TABLE $table_name (
-		    id mediumint(9) NOT NULL AUTO_INCREMENT,
-		    start_date TIMESTAMP DEFAULT NOW() NOT NULL,
-		    show_time int(1),
-		    title varchar(255) NOT NULL,
-		    extra_info text,
-		    UNIQUE KEY id (id)
-		    );";
+
+$sql = "CREATE TABLE $table_name (
+        `id` mediumint(9) NOT NULL AUTO_INCREMENT,
+        `start_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        `show_time` int(1) DEFAULT NULL,
+        `title` varchar(255) NOT NULL,
+        `extra_info` text,
+         UNIQUE KEY `id` (`id`)
+       )CHARSET=utf8 ";
 
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 	dbDelta( $sql );
