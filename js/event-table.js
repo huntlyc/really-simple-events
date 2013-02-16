@@ -3,7 +3,7 @@ jQuery(document).ready(function(){
 		//if the link with the id:  upcoming_more_39  is clicked then show
 		//the table cell with id:  rse_extra_info_upcoming_39
 		event.preventDefault();
-		var idmatch = /(upcoming|past|all)_more_(\d+)/g;
+		var idmatch = /(past|upcoming|all)(-reverse)?_more_(\d+)/g;
 		var matches = idmatch.exec(jQuery(this).attr('id'));
 		var infoID = 'td#hc_rse_extra_info_' + matches[1] + '_' + matches[2];
 

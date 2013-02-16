@@ -7,8 +7,11 @@
 	<p><?php _e( 'To show your upcoming events on a page or post just use this short code' , 'hc_rse' ); ?>: <strong>[hc_rse_events]</strong>.  <?php _e( 'If you wish to show past events only, you can use the &#39;showevents&#39; attribute with one of the following values.' , 'hc_rse' ); ?></p>
 	<ul>
 		<li><strong>all</strong> - <?php _e( 'show both past and upcoming events.' , 'hc_rse' ); ?></li>
+		<li><strong>all-reverse</strong> - <?php _e( 'show both past and upcoming events ordered by newest to oldest.' , 'hc_rse' ); ?></li>
 		<li><strong>past</strong> - <?php _e( 'only show the events that have happened already.' , 'hc_rse' ); ?></li>
+		<li><strong>past-reverse</strong> - <?php _e( 'only show the events that have happened already. In the Reverse order (oldest first)' , 'hc_rse' ); ?></li>
 		<li><strong>upcoming</strong> - <?php _e( 'show only upcoming events (note this is the default behaviour when the showevents attribute is omitted).' , 'hc_rse' ); ?></li>
+		<li><strong>upcoming-reverse</strong> - <?php _e( 'show only upcoming events in the reverse order.' , 'hc_rse' ); ?></li>
 	</ul>
 	<p><?php _e( 'For example, to show all past and upcoming events use this short code' , 'hc_rse' ); ?>: <strong>[hc_rse_events showevents='all']</strong></p>
 	<h3><?php _e( 'Advanced' , 'hc_rse' ); ?></h3>

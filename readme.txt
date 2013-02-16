@@ -3,8 +3,8 @@ Contributors: huntlyc
 Donate link: http://www.tagonline.org.uk/howtodonate.asp
 Tags: events, gigs, performances
 Requires at least: 3.4.1
-Tested up to: 3.5-RC2
-Stable tag: 1.2.9
+Tested up to: 3.5.1
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,14 @@ There's a .po file in the plugin that you can use with a tool like po edit if yo
 
 == Changelog ==
 
+= 1.3.1 =
+* New: 'past-reverse' and 'upcoming-reverse' options added to order events.
+* Fixed: htmlchars not working and non-ascii characters not showing properly
+
+= 1.3 =
+* New: 'all-reverse' option to show all events but in the wrong order (newest to oldest)
+
+
 = 1.2.9 =
 * Fixed: Admin Add/Edit/Delete links not working properly
 * Updated: DB table now use utf8 instead of the default latin1 charset
@@ -68,6 +76,15 @@ Everythings all up to date with the wp plugin hosting
 * Initial version
 
 == Upgrade Notice ==
+
+= 1.3.1 =
+
+* New: 'past-reverse' and 'upcoming-reverse' options added to order events
+* Fixed: htmlchars not working and non-ascii characters not showing properly
+
+= 1.3 =
+* New: 'all-reverse' option to show all events but in the wrong order (newest to oldest)
+* Fixed: HTML in extra info
 
 = 1.2.9 =
 * Fixed: Admin Add/Edit/Delete links not working properly
