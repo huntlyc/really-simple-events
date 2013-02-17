@@ -5,7 +5,13 @@ jQuery(document).ready(function(){
 		event.preventDefault();
 		var idmatch = /(past|upcoming|all)(-reverse)?_more_(\d+)/g;
 		var matches = idmatch.exec(jQuery(this).attr('id'));
-		var infoID = 'td#hc_rse_extra_info_' + matches[1] + '_' + matches[2];
+		var infoID = "";
+
+		if(matches.length == 4){
+    		infoID = 'td#hc_rse_extra_info_' + matches[1] + matches[2] + '_' + matches[3];
+    	}else{
+    		infoID = 'td#hc_rse_extra_info_' + matches[1] + '_' + matches[2];
+    	}
 
 		if(jQuery(infoID).hasClass('hidden')){
 			jQuery(this).text(objectL10n.HideInfo);
