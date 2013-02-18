@@ -7,10 +7,10 @@ jQuery(document).ready(function(){
 		var matches = idmatch.exec(jQuery(this).attr('id'));
 		var infoID = "";
 
-		if(matches.length == 4){
-    		infoID = 'td#hc_rse_extra_info_' + matches[1] + matches[2] + '_' + matches[3];
+		if(matches[2] == undefined){ //no reverse option
+    		infoID = 'td#hc_rse_extra_info_' + matches[1] + '_' + matches[3];
     	}else{
-    		infoID = 'td#hc_rse_extra_info_' + matches[1] + '_' + matches[2];
+    		infoID = 'td#hc_rse_extra_info_' + matches[1] + matches[2] + '_' + matches[3];
     	}
 
 		if(jQuery(infoID).hasClass('hidden')){
