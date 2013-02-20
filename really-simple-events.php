@@ -3,7 +3,7 @@
 Plugin Name: Really Simple Events
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Simple event module, just a title and start date/time needed!  You can, of course, provide extra information about the event if you wish.  This plugin was created for a bands/performers who do one off shows lasting a couple of hours rather than a few days, so event date ranges, custom post type and so on are not included.
-Version: 1.3.3
+Version: 1.3.4
 Author: Huntly Cameron
 Author URI: http://www.huntlycameron.co.uk
 License: GPL2
@@ -73,14 +73,19 @@ function widget_hc_rse_event_widget($args) {
 							     )
 					  );
 
-	$eventQuery = "SELECT * FROM $table_name WHERE start_date >= NOW() ORDER BY start_date ASC";
-	$upcoming_events = $wpdb->get_results( $eventQuery );
+
+	//Get options (default if not set: all upcoming evebts)
+	$widgetTitle = get_option('hc_rse_widget_title', 'Upcoming Events');
+	$listType = get_option('hc_rse_widget_events', 'upcoming');
+	$showEvents = get_option('hc_rse_widget_event_limit', -1);
+
+	$events = hc_rse_get_events($listType, $showEvents);
 
 	$eventHTML = "";
 
-	if( $upcoming_events ){
+	if( $events ){
 		$eventHTML .= '<ul>';
-		foreach($upcoming_events as $event){
+		foreach($events as $event){
 
 			$eventHTML .= '    <li>';
 			$eventHTML .=          date( get_option( 'hc_rse_date_format' ) ,
@@ -93,17 +98,68 @@ function widget_hc_rse_event_widget($args) {
 		$eventHTML = __("No Events", 'hc_rse');
 	}
 
-
-
     echo $before_widget;
-    echo $before_title . __('Upcoming Events', 'hc_rse') . $after_title;
+    echo $before_title . $widgetTitle . $after_title;
     echo $eventHTML;
     echo $after_widget;
 
 }
-wp_register_sidebar_widget('HC_RSE_EVENT_WIDGET', 'Upcoming Events', 'widget_hc_rse_event_widget', array(                  // options
+wp_register_sidebar_widget('HC_RSE_EVENT_WIDGET', 'RSE Event Widget', 'widget_hc_rse_event_widget', array(                  // options
         'description' => __('Shows upcoming events', 'hc_rse')
     ));
+
+
+function hc_rse_widget_control($args=array(), $params=array()) {
+	//the form is submitted, save into database
+	if (isset($_POST['submitted'])) {
+		update_option('hc_rse_widget_title', $_POST['hc_rse_widget_title']);
+		update_option('hc_rse_widget_event_limit', $_POST['hc_rse_widget_event_limit']);
+		update_option('hc_rse_widget_events', $_POST['hc_rse_widget_events']);
+	}
+
+	//load options
+	$hc_rse_widget_title = get_option('hc_rse_widget_title', 'Upcoming Events');
+	$hc_rse_widget_event_limit = get_option('hc_rse_widget_event_limit', -1);
+	$hc_rse_widget_events = get_option('hc_rse_widget_events', 'upcoming');
+
+	?>
+	Widget Title:<br />
+	<input type="text" class="widefat" name="hc_rse_widget_title" value="<?php echo $hc_rse_widget_title; ?>"/>
+	<br /><br />
+
+	Show Events:<br />
+	<select class="widefat" name="hc_rse_widget_events">
+		<option <?php if($hc_rse_widget_events == 'all') echo 'selected="selected"'; ?> value="all">All</option>
+		<option <?php if($hc_rse_widget_events == 'all-reverse') echo 'selected="selected"'; ?> value="all-reverse">All (Reverse Order)</option>
+		<option <?php if($hc_rse_widget_events == 'upcoming') echo 'selected="selected"'; ?> value="upcoming">Upcoming</option>
+		<option <?php if($hc_rse_widget_events == 'upcoming-reverse') echo 'selected="selected"'; ?> value="upcoming-reverse">Upcoming (Reverse Order)</option>
+		<option <?php if($hc_rse_widget_events == 'past') echo 'selected="selected"'; ?> value="past">Past</option>
+		<option <?php if($hc_rse_widget_events == 'past-reverse') echo 'selected="selected"'; ?> value="past-reverse">Past (Reverse Order)</option>
+	</select>
+	<br /><br />
+
+	Number of Events:<br />
+	<select class="widefat" name="hc_rse_widget_event_limit">
+		<option <?php if($hc_rse_widget_event_limit == -1) echo 'selected="selected"'; ?>  value="-1">All</option>
+		<?php for($i = 1; $i <= 99; $i++): ?>
+			<?php if($hc_rse_widget_event_limit == $i): ?>
+				<option selected="selected" value="<?php echo $i; ?>"><?php echo $i; ?></option>
+			<?php else: ?>
+				<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+			<?php endif; ?>
+		<?php endfor; ?>
+	</select>
+	<br /><br />
+
+	<input type="hidden" name="submitted" value="1" />
+	<?php
+}
+
+wp_register_widget_control(
+	'HC_RSE_EVENT_WIDGET',		// id
+	'RSE Event Widget',		// name
+	'hc_rse_widget_control'	// callback function
+);
 
 add_shortcode( 'hc_rse_events' , 'hc_rse_display_events' );
 /**
@@ -139,8 +195,6 @@ function hc_rse_display_events( $attibutes ){
 			               )
 		   );
 
-	$table_name = $wpdb->prefix . HC_RSE_TABLE_NAME;
-
 	//By default include the custom CSS and JS
 	if($noassets == 'false'){
 		wp_enqueue_style( "hc_rse_styles" ,
@@ -158,26 +212,8 @@ function hc_rse_display_events( $attibutes ){
 						  );
 	}
 
-	switch($showevents){
-		case 'all':
-			$eventQuery = "SELECT * FROM $table_name ORDER BY start_date ASC";
-			break;
-		case 'all-reverse':
-			$eventQuery = "SELECT * FROM $table_name ORDER BY start_date DESC";
-			break;
-		case 'past':
-			$eventQuery = "SELECT * FROM $table_name WHERE start_date < NOW() ORDER BY start_date DESC";
-			break;
-		case 'past-reverse':
-			$eventQuery = "SELECT * FROM $table_name WHERE start_date < NOW() ORDER BY start_date ASC";
-			break;
-		case 'upcoming-reverse':
-			$eventQuery = "SELECT * FROM $table_name WHERE start_date >= NOW() ORDER BY start_date DESC";
-			break;
-		default:
-			$eventQuery = "SELECT * FROM $table_name WHERE start_date >= NOW() ORDER BY start_date ASC";
-			break;
-	}
+	$upcoming_events = hc_rse_get_events($showevents);
+
 
 	//If the user has passed something into the columns argument, use it
 	$useDefaultColumns = false;
@@ -203,7 +239,6 @@ function hc_rse_display_events( $attibutes ){
 		$columns = explode(',', 'date,time,title,moreinfo');
 	}
 
-	$upcoming_events = $wpdb->get_results( $eventQuery );
 
 	$eventHTML = "";
 
@@ -273,7 +308,46 @@ function hc_rse_display_events( $attibutes ){
 	return $eventHTML;
 }
 
+/**
+ * Depending on the list type, get the events
+ *
+ * @param str $listType - [all|all-reverse|upcoming|upcoming-reverse|past|past-reverse]
+ * @param int $showEvents (optional) - the number of events to show
+ * @return $wpdb result set $events - Result set of the query
+ */
+function hc_rse_get_events($listType, $showEvents = -1){
+	global $wpdb;
 
+	$table_name = $wpdb->prefix . HC_RSE_TABLE_NAME;
+
+	switch($listType){
+		case 'all':
+			$eventQuery = "SELECT * FROM $table_name ORDER BY start_date ASC";
+			break;
+		case 'all-reverse':
+			$eventQuery = "SELECT * FROM $table_name ORDER BY start_date DESC";
+			break;
+		case 'past':
+			$eventQuery = "SELECT * FROM $table_name WHERE start_date < NOW() ORDER BY start_date DESC";
+			break;
+		case 'past-reverse':
+			$eventQuery = "SELECT * FROM $table_name WHERE start_date < NOW() ORDER BY start_date ASC";
+			break;
+		case 'upcoming-reverse':
+			$eventQuery = "SELECT * FROM $table_name WHERE start_date >= NOW() ORDER BY start_date DESC";
+			break;
+		default:
+			$eventQuery = "SELECT * FROM $table_name WHERE start_date >= NOW() ORDER BY start_date ASC";
+			break;
+	}
+
+	//If there's a limit set, obey it!
+	if($showEvents != -1 && is_numeric($showEvents)){
+		$eventQuery .= ' LIMIT ' . $showEvents;
+	}
+
+	return $wpdb->get_results( $eventQuery );
+}
 
 function hc_rse_setup_custom_assets(){
 	wp_enqueue_style( "hc_rse_styles" ,
@@ -325,6 +399,7 @@ function hc_rse_setup_custom_assets(){
 function hc_rse_update_db_check() {
 	global $hc_rse_db_version;
 	if ( get_site_option( 'hc_rse_db_version' ) != $hc_rse_db_version ) {
+		echo get_site_option( 'hc_rse_db_version' ). " != $hc_rse_db_version";
 		hc_rse_plugin_install();
 	}
 }
@@ -362,7 +437,7 @@ $sql = "CREATE TABLE $table_name (
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 	dbDelta( $sql );
 
-	add_option( 'hc_rse_db_version' , $hc_rse_db_version );
+	add_site_option( 'hc_rse_db_version' , $hc_rse_db_version );
 	add_option( 'hc_rse_date_format' , 'jS M Y' );
 	add_option( 'hc_rse_time_format' , 'H:i' );
 }
