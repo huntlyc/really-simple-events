@@ -4,7 +4,7 @@ Donate link: http://www.tagonline.org.uk/howtodonate.asp
 Tags: events, gigs, performances
 Requires at least: 3.4.1
 Tested up to: 3.5.1
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,10 @@ If you're willing to take 10-20 mins to do a translation (it's a small plugin), 
 5. The widget configuration
 
 == Changelog ==
+
+= 1.3.8 =
+* new: limit number of events with [hc_rse_events numevents=4] shortcode
+* new: Danish translation file added (although with only two tranlations)
 
 = 1.3.7 =
 * apply_filter('the_content') added to more info output to handle shortcodes
@@ -104,6 +108,10 @@ Everythings all up to date with the wp plugin hosting
 * Initial version
 
 == Upgrade Notice ==
+
+= 1.3.8 =
+* new: limit number of events with [hc_rse_events numevents=4] shortcode
+* new: Danish translation file added (although with only two tranlations)
 
 = 1.3.7 =
 * apply_filter('the_content') added to more info output to handle shortcodes

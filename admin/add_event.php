@@ -32,8 +32,9 @@
 		$showTime = (isset( $_POST['show_time'] ) && $_POST['show_time'] === "on" ) ? 1 : 0;
 		if( isset( $_POST['extra_info'] ) ) $extraInfo = $_POST['extra_info'];
 
-
+		//create error msg if no title is provided
 		if( $title === "" ) $errorMsg .= __( 'Please enter a title' , 'hc_rse' ) . '<br/>';
+		//create error msg if wrong date format
 		if(  ! preg_match( $dateFormatPattern , $startDate ) ) $errorMsg .= __( 'Date/Time should be in the following format: yyyy-mm-dd HH:MM' , 'hc_rse' ) . '<br/>';
 
 		//If all is valid, add to our database
@@ -48,7 +49,7 @@
 			if( isset( $_GET['edit_id'] ) && is_numeric( $_GET['edit_id'] ) ){
 				$isInserted = $wpdb->update( $table_name ,
 						                     $tableCols ,
-											 array('ID' => $_GET['edit_id'])
+											 array( 'ID' => $_GET['edit_id'] )
 										   );
 			}else{ //new record
 				$isInserted = $wpdb->insert( $table_name , $tableCols );
@@ -65,7 +66,7 @@
 			if( ! $isInserted ){
 				$errorMsg .= __( 'Could not create event! HELP!!' , 'hc_rse' );
 			}else{
-				$updateMsg .= __( 'Event Updated: ' , 'hc_rse' ) . stripslashes($title);
+				$updateMsg .= __( 'Event Updated: ' , 'hc_rse' ) . stripslashes( $title );
 			}
 		}
 	}
@@ -80,10 +81,10 @@
 		</div>
 	<?php endif; ?>
 
-	<?php if(isset($_GET['msg']) || $updateMsg != ""): ?>
+	<?php if( isset( $_GET['msg'] ) || $updateMsg != "" ): ?>
 		<div class="updated">
 			<p>
-				<strong><?php echo ( isset( $_GET['msg'] ) && $_GET['msg'] == 'added' ) ?  __( 'Event Added: ' , 'hc_rse' ) . stripslashes($title) : $updateMsg; ?></strong>
+				<strong><?php echo ( isset( $_GET['msg'] ) && $_GET['msg'] == 'added' ) ?  __( 'Event Added: ' , 'hc_rse' ) . stripslashes( $title ) : $updateMsg; ?></strong>
 			</p>
 		</div>
 	<?php endif; ?>
@@ -96,30 +97,30 @@
 		<table id="past-events" class="form-table">
 			<tbody>
 				<tr>
-					<th><label for="title"><?php _e( 'Event Title' , 'hc_rse'); ?></label></th>
-					<td><input class="regular-text ltr" type="text" id="title" name="title" value="<?php echo htmlentities(stripslashes( $title )); ?>"/></td>
+					<th><label for="title"><?php _e( 'Event Title' , 'hc_rse' ); ?></label></th>
+					<td><input class="regular-text ltr" type="text" id="title" name="title" value="<?php echo htmlentities( stripslashes( $title ) ); ?>"/></td>
 				</tr>
 				<tr>
-					<th><label for="start_date"><?php _e( 'Event Date/Time' , 'hc_rse'); ?></label></th>
+					<th><label for="start_date"><?php _e( 'Event Date/Time' , 'hc_rse' ); ?></label></th>
 					<td>
 						<input class="regular-text ltr date_pick" type="text" id="start_date" name="start_date" value="<?php echo $startDate; ?>"/>
 					</td>
 				</tr>
 				<tr>
-					<th><label for="show_time"><?php _e( 'Show Event Time?' , 'hc_rse'); ?></label></th>
+					<th><label for="show_time"><?php _e( 'Show Event Time?' , 'hc_rse' ); ?></label></th>
 					<td>
-						<input class="" type="checkbox" id="show_time" name="show_time" <?php echo ($showTime == 1) ? 'checked="checked"' : ''; ?>/>
+						<input class="" type="checkbox" id="show_time" name="show_time" <?php echo ( $showTime == 1 ) ? 'checked="checked"' : ''; ?>/>
 						<p class="description"><?php _e( '(Keep un-checked if you are just concerned with dates and do not wish to show the time value for this event)' , 'hc_rse' ); ?></p>
 					</td>
 				</tr>
 				<tr>
-					<th><label for="extra_info"><?php _e( 'Extra Event Info' , 'hc_rse'); ?></label></th>
+					<th><label for="extra_info"><?php _e( 'Extra Event Info' , 'hc_rse' ); ?></label></th>
 					<td>
 						<?php wp_editor( stripslashes( $extraInfo ) , 'extra_info' , array( 'media_buttons' => true ) ); ?>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" class="button-primary" value="<?php echo ( isset($_GET['edit_id'] ) && is_numeric( $_GET['edit_id'] ) ) ?  __( 'Update Event' , 'hc_rse' ) : __( 'Add Event' , 'hc_rse' ); ?>"/>
+					<td colspan="2"><input type="submit" class="button-primary" value="<?php echo ( isset( $_GET['edit_id'] ) && is_numeric( $_GET['edit_id'] ) ) ?  __( 'Update Event' , 'hc_rse' ) : __( 'Add Event' , 'hc_rse' ); ?>"/>
 				</tr>
 			</tbody>
 		</table>

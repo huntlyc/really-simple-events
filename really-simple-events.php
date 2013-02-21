@@ -3,7 +3,7 @@
 Plugin Name: Really Simple Events
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Simple event module, just a title and start date/time needed!  You can, of course, provide extra information about the event if you wish.  This plugin was created for a bands/performers who do one off shows lasting a couple of hours rather than a few days, so event date ranges, custom post type and so on are not included.
-Version: 1.3.6
+Version: 1.3.8
 Author: Huntly Cameron
 Author URI: http://www.huntlycameron.co.uk
 License: GPL2
@@ -43,14 +43,35 @@ define( 'HC_RSE_TABLE_NAME' , 'reallysimpleevents' );
 register_activation_hook( __FILE__ , 'hc_rse_plugin_install' );
 
 //When the plugin is loaded, check for DB updates and first run
+add_action( 'plugins_loaded' , 'hc_rse_load_translations' );
 add_action( 'plugins_loaded' , 'hc_rse_update_db_check' );
 add_action( 'plugins_loaded' , 'hc_rse_first_run_check' );
 add_action( 'admin_menu' , 'hc_rse_build_admin_menu' );
 add_action( 'admin_init' , 'hc_rse_setup_custom_assets' );
 
 //Add Sidebar widget
+wp_register_sidebar_widget( 'HC_RSE_EVENT_WIDGET',
+                            'RSE Event Widget',
+                            'widget_hc_rse_event_widget',
+                            array( 'description' =>
+                            	   __( 'Shows upcoming events' , 'hc_rse' ) )
+                          );
+wp_register_widget_control(
+	'HC_RSE_EVENT_WIDGET',		// id
+	'RSE Event Widget',		// name
+	'hc_rse_widget_control'	// callback function
+);
 
-//Create a sidebar widget
+//Add shortcode handler for our shortcode "[hc_rse_events]"
+add_shortcode( 'hc_rse_events' , 'hc_rse_display_events' );
+
+
+/**
+ * Create a sidebar widget
+ *
+ * @param mixed $args
+ * @return void
+ */
 function widget_hc_rse_event_widget($args) {
     global $wpdb;
     extract($args);
@@ -75,9 +96,9 @@ function widget_hc_rse_event_widget($args) {
 
 
 	//Get options (default if not set: all upcoming evebts)
-	$widgetTitle = get_option('hc_rse_widget_title', 'Upcoming Events');
-	$listType = get_option('hc_rse_widget_events', 'upcoming');
-	$showEvents = get_option('hc_rse_widget_event_limit', -1);
+	$widgetTitle = get_option( 'hc_rse_widget_title' , 'Upcoming Events' );
+	$listType = get_option( 'hc_rse_widget_events' , 'upcoming' );
+	$showEvents = get_option( 'hc_rse_widget_event_limit' , -1 );
 
 	$events = hc_rse_get_events($listType, $showEvents);
 
@@ -85,17 +106,20 @@ function widget_hc_rse_event_widget($args) {
 
 	if( $events ){
 		$eventHTML .= '<ul>';
-		foreach($events as $event){
+
+		foreach( $events as $event ){
+			$eventDate = date( get_option( 'hc_rse_date_format' ) ,
+					            strtotime( $event->start_date ));
+			$eventTitle = stripslashes( $event->title );
 
 			$eventHTML .= '    <li>';
-			$eventHTML .=          date( get_option( 'hc_rse_date_format' ) ,
-					                     strtotime( $event->start_date ) ) . ' - ' . stripslashes( $event->title );
+			$eventHTML .=          "$eventDate - $eventTitle";
 			$eventHTML .= '    </li>';
 
 		}
 		$eventHTML .= '</ul>';
 	}else{
-		$eventHTML = __("No Events", 'hc_rse');
+		$eventHTML = __( "No Events", 'hc_rse' );
 	}
 
     echo $before_widget;
@@ -104,45 +128,48 @@ function widget_hc_rse_event_widget($args) {
     echo $after_widget;
 
 }
-wp_register_sidebar_widget('HC_RSE_EVENT_WIDGET', 'RSE Event Widget', 'widget_hc_rse_event_widget', array(                  // options
-        'description' => __('Shows upcoming events', 'hc_rse')
-    ));
 
-
-function hc_rse_widget_control($args=array(), $params=array()) {
+/**
+ * handles saving/displaying the widget options in the admin menu
+ *
+ * @param array $args - list of arguments
+ * @param array $params - list of parameters
+ * @return void
+ */
+function hc_rse_widget_control( $args = array() , $params = array() ) {
 	//the form is submitted, save into database
-	if (isset($_POST['submitted'])) {
-		update_option('hc_rse_widget_title', $_POST['hc_rse_widget_title']);
-		update_option('hc_rse_widget_event_limit', $_POST['hc_rse_widget_event_limit']);
-		update_option('hc_rse_widget_events', $_POST['hc_rse_widget_events']);
+	if ( isset( $_POST['submitted'] ) ) {
+		update_option( 'hc_rse_widget_title' , $_POST['hc_rse_widget_title'] );
+		update_option( 'hc_rse_widget_event_limit' , $_POST['hc_rse_widget_event_limit'] );
+		update_option( 'hc_rse_widget_events' , $_POST['hc_rse_widget_events'] );
 	}
 
 	//load options
-	$hc_rse_widget_title = get_option('hc_rse_widget_title', 'Upcoming Events');
-	$hc_rse_widget_event_limit = get_option('hc_rse_widget_event_limit', -1);
-	$hc_rse_widget_events = get_option('hc_rse_widget_events', 'upcoming');
+	$hc_rse_widget_title = get_option( 'hc_rse_widget_title' , 'Upcoming Events' );
+	$hc_rse_widget_event_limit = get_option( 'hc_rse_widget_event_limit' , -1 );
+	$hc_rse_widget_events = get_option( 'hc_rse_widget_events' , 'upcoming' );
 
 	?>
-	Widget Title:<br />
+	<?php _e( 'Widget Title' , 'hc_rse' ); ?>:<br />
 	<input type="text" class="widefat" name="hc_rse_widget_title" value="<?php echo $hc_rse_widget_title; ?>"/>
 	<br /><br />
 
-	Show Events:<br />
+	<?php _e( 'Show Events' , 'hc_rse' ); ?>:<br />
 	<select class="widefat" name="hc_rse_widget_events">
-		<option <?php if($hc_rse_widget_events == 'all') echo 'selected="selected"'; ?> value="all">All</option>
-		<option <?php if($hc_rse_widget_events == 'all-reverse') echo 'selected="selected"'; ?> value="all-reverse">All (Reverse Order)</option>
-		<option <?php if($hc_rse_widget_events == 'upcoming') echo 'selected="selected"'; ?> value="upcoming">Upcoming</option>
-		<option <?php if($hc_rse_widget_events == 'upcoming-reverse') echo 'selected="selected"'; ?> value="upcoming-reverse">Upcoming (Reverse Order)</option>
-		<option <?php if($hc_rse_widget_events == 'past') echo 'selected="selected"'; ?> value="past">Past</option>
-		<option <?php if($hc_rse_widget_events == 'past-reverse') echo 'selected="selected"'; ?> value="past-reverse">Past (Reverse Order)</option>
+		<option <?php if( $hc_rse_widget_events == 'all' ) echo 'selected="selected"'; ?> value="all"><?php _e( 'All' , 'hc_rse' ); ?></option>
+		<option <?php if( $hc_rse_widget_events == 'all-reverse' ) echo 'selected="selected"'; ?> value="all-reverse"><?php _e( 'All (Reverse Order)' , 'hc_rse' ); ?></option>
+		<option <?php if( $hc_rse_widget_events == 'upcoming' ) echo 'selected="selected"'; ?> value="upcoming"><?php _e( 'Upcoming' , 'hc_rse' ); ?></option>
+		<option <?php if( $hc_rse_widget_events == 'upcoming-reverse' ) echo 'selected="selected"'; ?> value="upcoming-reverse"><?php _e( 'Upcoming (Reverse Order)' , 'hc_rse' ); ?></option>
+		<option <?php if( $hc_rse_widget_events == 'past' ) echo 'selected="selected"'; ?> value="past"><?php _e( 'Past' , 'hc_rse' ); ?></option>
+		<option <?php if( $hc_rse_widget_events == 'past-reverse' ) echo 'selected="selected"'; ?> value="past-reverse"><?php _e( 'Past (Reverse Order)' , 'hc_rse' ); ?></option>
 	</select>
 	<br /><br />
 
-	Number of Events:<br />
+	<?php _e( 'Number of Events' , 'hc_rse' ); ?>:<br />
 	<select class="widefat" name="hc_rse_widget_event_limit">
-		<option <?php if($hc_rse_widget_event_limit == -1) echo 'selected="selected"'; ?>  value="-1">All</option>
-		<?php for($i = 1; $i <= 99; $i++): ?>
-			<?php if($hc_rse_widget_event_limit == $i): ?>
+		<option <?php if( $hc_rse_widget_event_limit == -1 ) echo 'selected="selected"'; ?>  value="-1"><?php _e( 'All' , 'hc_rse' ); ?></option>
+		<?php for( $i = 1; $i <= 99; $i++ ): ?>
+			<?php if( $hc_rse_widget_event_limit == $i ): ?>
 				<option selected="selected" value="<?php echo $i; ?>"><?php echo $i; ?></option>
 			<?php else: ?>
 				<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
@@ -155,13 +182,6 @@ function hc_rse_widget_control($args=array(), $params=array()) {
 	<?php
 }
 
-wp_register_widget_control(
-	'HC_RSE_EVENT_WIDGET',		// id
-	'RSE Event Widget',		// name
-	'hc_rse_widget_control'	// callback function
-);
-
-add_shortcode( 'hc_rse_events' , 'hc_rse_display_events' );
 /**
  * Parses the shortcode and displays the events.  The defalt is to only show
  * events which are happening from the current time onwards.  To change this
@@ -184,19 +204,24 @@ add_shortcode( 'hc_rse_events' , 'hc_rse_display_events' );
  */
 function hc_rse_display_events( $attibutes ){
 	global $wpdb;
+	$defaultColList = array( 'date','time','title','moreinfo');
+
 	$showevents = '';
 	$noassets = '';
 	$columns = '';
+	$numevents = -1;
+
 	extract( shortcode_atts( array( 'showevents' => 'upcoming' ,
 		                            'noassets' => 'false',
-		                            'columns' => 'date,time,title,moreinfo'
+		                            'columns' => 'date,time,title,moreinfo',
+		                            'numevents' => -1
 		                          ) ,
 			                 $attibutes
 			               )
 		   );
 
 	//By default include the custom CSS and JS
-	if($noassets == 'false'){
+	if( $noassets == 'false' ){
 		wp_enqueue_style( "hc_rse_styles" ,
 						  plugin_dir_url( __FILE__ ) . "style.css" );
 		wp_enqueue_script( "hc_rse_event_table" ,
@@ -212,21 +237,23 @@ function hc_rse_display_events( $attibutes ){
 						  );
 	}
 
-	$upcoming_events = hc_rse_get_events($showevents);
+	$upcoming_events = hc_rse_get_events( $showevents , $numevents );
 
 
 	//If the user has passed something into the columns argument, use it
 	$useDefaultColumns = false;
 
-	if($columns !== ''){
+	if ($columns !== '' ){
 		//If we've got a list of cols, split them out
-		if(mb_strpos($columns, ',') === false){
+		if( mb_strpos( $columns , ',' ) === false ){
 			//We might only have one column to show, make sure it's valid
-			if(!in_array($columns, array('date','time','title','moreinfo'))){
+
+
+			if( !in_array( $columns , $defaultColList ) ){
 				$useDefaultColumns = true;
 			}
-		}elseif(mb_strpos($columns, ',') !== 0){
-			$columns = explode(',', $columns);
+		}elseif( mb_strpos( $columns , ',' ) !== 0 ){
+			$columns = explode( ',' , $columns );
 		}else{
 			$useDefaultColumns = true;
 		}
@@ -235,8 +262,8 @@ function hc_rse_display_events( $attibutes ){
 	}
 
 	//Something's not right, just show the defaults
-	if($useDefaultColumns){
-		$columns = explode(',', 'date,time,title,moreinfo');
+	if( $useDefaultColumns ){
+		$columns = $defaultColList;
 	}
 
 
@@ -247,20 +274,21 @@ function hc_rse_display_events( $attibutes ){
 		$isShowingATime = false;
 
 		//Loop through and see if we're showing a time
-		foreach($upcoming_events as $event){
-			foreach($columns as $column){
-				if($column == 'time' && $event->show_time == 1){
+		foreach( $upcoming_events as $event ){
+			foreach( $columns as $column ){
+				if( $column == 'time' && $event->show_time == 1 ){
 					$isShowingATime = true;
 				}
 			}
 		}
 
-		foreach($upcoming_events as $event){
+		//For each event, output the correct columns
+		foreach( $upcoming_events as $event ){
 			//Show only the relevent columns
 			$showMoreInfo = false;
 			$eventHTML .= '<tr>';
-			foreach($columns as $column) {
-				switch($column){
+			foreach( $columns as $column ) {
+				switch( $column ){
 					case 'date':
 						$eventHTML .= '    <td class="hc_rse_date">';
 						$eventHTML .=          date( get_option( 'hc_rse_date_format' ) ,
@@ -269,15 +297,15 @@ function hc_rse_display_events( $attibutes ){
 						break;
 					case 'time':
 						//Add column if we're showing a time
-						if($isShowingATime) $eventHTML .= '    <td class="hc_rse_time">';
+						if( $isShowingATime ) $eventHTML .= '    <td class="hc_rse_time">';
 						//Only show time if it has been set in the event settings
-						if($event->show_time == 1){
+						if( $event->show_time == 1 ){
 
 							$eventHTML .=          date( get_option( 'hc_rse_time_format' ) ,
 									                     strtotime( $event->start_date ) );
 						}
 						//close column if we're showing a time
-						if($isShowingATime) $eventHTML .= '    </td>';
+						if( $isShowingATime ) $eventHTML .= '    </td>';
 						break;
 					case 'title':
 						$eventHTML .= '    <td class="hc_rse_title">';
@@ -287,17 +315,17 @@ function hc_rse_display_events( $attibutes ){
 					case 'moreinfo':
 						$showMoreInfo = true;
 						$eventHTML .= '    <td>';
-						$eventHTML .=          ($event->extra_info != "") ? '<a id="' . $showevents . '_more_' . $event->id . '" class="hc_rse_more_info" href="#more">' . __('More Info', 'hc_rse') . '</a>': '&nbsp';
+						$eventHTML .=          ( $event->extra_info != "" ) ? '<a id="' . $showevents . '_more_' . $event->id . '" class="hc_rse_more_info" href="#more">' . __( 'More Info' , 'hc_rse' ) . '</a>': '&nbsp';
 						$eventHTML .= '    </td>';
 						break;
 				}
 			}
 			//Add the info if we're showing it...
-			if($showMoreInfo){
+			if( $showMoreInfo ){
 				$eventHTML .= '</tr>';
 				$eventHTML .= '<tr>';
 				$eventHTML .= '    <td colspan="4" id="hc_rse_extra_info_' . $showevents . '_' . $event->id . '" class="hc_rse_extra_info hidden">';
-				//$eventHTML .=          apply_filters( 'the_content' , stripslashes($event->extra_info ) );
+				//$eventHTML .=        stripslashes( $event->extra_info );
 				$eventHTML .=          apply_filters( 'the_content' , stripslashes( $event->extra_info ) );
 				$eventHTML .= '    </td>';
 			}
@@ -320,7 +348,7 @@ function hc_rse_get_events($listType, $showEvents = -1){
 
 	$table_name = $wpdb->prefix . HC_RSE_TABLE_NAME;
 
-	switch($listType){
+	switch( $listType ){
 		case 'all':
 			$eventQuery = "SELECT * FROM $table_name ORDER BY start_date ASC";
 			break;
@@ -342,7 +370,7 @@ function hc_rse_get_events($listType, $showEvents = -1){
 	}
 
 	//If there's a limit set, obey it!
-	if($showEvents != -1 && is_numeric($showEvents)){
+	if( $showEvents != -1 && is_numeric( $showEvents ) ){
 		$eventQuery .= ' LIMIT ' . $showEvents;
 	}
 
@@ -389,14 +417,26 @@ function hc_rse_setup_custom_assets(){
 }
 
 /**
+ * loads tranlation file
+ *
+ * @return void
+ */
+function hc_rse_load_translations(){
+	$plugin_dir = basename(dirname(__FILE__));
+	$x = load_plugin_textdomain( 'hc_rse', false, $plugin_dir . '/translations/' );
+	//exit($x);
+}
+
+/**
  * Checks if we need to update the db schema
  *
  * If the site_option value doesn't match the version defined at the top of
  * this file, the install routine is run.
  *
  * @global string $hc_rse_db_version
+ * @return void
  */
-function hc_rse_update_db_check() {
+function hc_rse_update_db_check(){
 	global $hc_rse_db_version;
 	if ( get_site_option( 'hc_rse_db_version' ) != $hc_rse_db_version ) {
 		hc_rse_plugin_install();
@@ -405,6 +445,8 @@ function hc_rse_update_db_check() {
 
 /**
  * Checks for first run
+ *
+ * @return void
  */
 function hc_rse_first_run_check(){
 	if ( get_site_option( 'hc_rse_first_run' , 'fasly' ) === 'fasly' ) {
@@ -418,6 +460,8 @@ function hc_rse_first_run_check(){
  *
  * @global type $wpdb
  * @global string $hc_rse_db_version
+ *
+ * @return void
  */
 function hc_rse_plugin_install(){
 	global $wpdb;
@@ -490,9 +534,7 @@ function hc_rse_build_admin_menu(){
 		            );
 }
 
-/**
- * Shows all upcoming events
- */
+//Menu callbacks
 function hc_rse_events(){
 	require_once plugin_dir_path( __FILE__ ) . 'admin/view_events.php';
 }
