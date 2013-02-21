@@ -4,7 +4,7 @@ Donate link: http://www.tagonline.org.uk/howtodonate.asp
 Tags: events, gigs, performances
 Requires at least: 3.4.1
 Tested up to: 3.5.1
-Stable tag: 1.3.5
+Stable tag: 1.3.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -47,6 +47,9 @@ If you're willing to take 10-20 mins to do a translation (it's a small plugin), 
 5. The widget configuration
 
 == Changelog ==
+
+= 1.3.6 =
+* Allow html in event title
 
 = 1.3.5 =
 * Removed accidental debug left in.
@@ -98,6 +101,9 @@ Everythings all up to date with the wp plugin hosting
 * Initial version
 
 == Upgrade Notice ==
+
+= 1.3.6 =
+* Allow html in event title
 
 = 1.3.5 =
 * Removed accidental debug left in.
