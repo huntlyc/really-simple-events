@@ -4,7 +4,7 @@ Donate link: http://www.tagonline.org.uk/howtodonate.asp
 Tags: events, gigs, performances
 Requires at least: 3.4.1
 Tested up to: 3.5.1
-Stable tag: 1.3.6
+Stable tag: 1.3.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,12 +12,12 @@ Simple, easy to use, event module!
 
 == Description ==
 
-Simple event module, just a title and start date/time needed!  You can, of course, provide extra information about the event if you wish.  
+Simple event module, just a title and start date/time needed!  You can, of course, provide extra information about the event if you wish.
 This plugin was created for bands/performers who do one off shows lasting a couple of hours rather than a few days, so event date ranges, custom post type and so on are not included.
 
 This plugin features a small widget that you can use to embed into your themes side bar or you can just use the shortcode "[hc_rse_events]"
 
-For advanced users, you can show just upcoming,past or all events and change the ordering by using the following shortcode "[hc_rse_events showevents="upcoming|upcoming-reverse|past|past-reverse|all|all-reverse]".  
+For advanced users, you can show just upcoming,past or all events and change the ordering by using the following shortcode "[hc_rse_events showevents="upcoming|upcoming-reverse|past|past-reverse|all|all-reverse]".
 You also have the ability to select which columns get output when using the shortcode as well as their ordering and finally you can change the default date format.
 
 
@@ -48,6 +48,9 @@ If you're willing to take 10-20 mins to do a translation (it's a small plugin), 
 
 == Changelog ==
 
+= 1.3.7 =
+* apply_filter('the_content') added to more info output to handle shortcodes
+
 = 1.3.6 =
 * Allow html in event title
 
@@ -56,7 +59,7 @@ If you're willing to take 10-20 mins to do a translation (it's a small plugin), 
 
 = 1.3.4 =
 * New: Widget now has options to allow user to customize output.
-* Fixed: DB version not saving correctly 
+* Fixed: DB version not saving correctly
 
 = 1.3.3 =
 * Fixed: More info link
@@ -102,6 +105,9 @@ Everythings all up to date with the wp plugin hosting
 
 == Upgrade Notice ==
 
+= 1.3.7 =
+* apply_filter('the_content') added to more info output to handle shortcodes
+
 = 1.3.6 =
 * Allow html in event title
 
@@ -110,7 +116,7 @@ Everythings all up to date with the wp plugin hosting
 
 = 1.3.4 =
 * New: Widget now has options to allow user to customize output.
-* Fixed: DB version not saving correctly 
+* Fixed: DB version not saving correctly
 
 = 1.3.3 =
 * Fixed: More info link

@@ -97,7 +97,7 @@
 			<tbody>
 				<tr>
 					<th><label for="title"><?php _e( 'Event Title' , 'hc_rse'); ?></label></th>
-					<td><input class="regular-text ltr" type="text" id="title" name="title" value="<?php echo stripslashes( $title ) ?>"/></td>
+					<td><input class="regular-text ltr" type="text" id="title" name="title" value="<?php echo htmlentities(stripslashes( $title )); ?>"/></td>
 				</tr>
 				<tr>
 					<th><label for="start_date"><?php _e( 'Event Date/Time' , 'hc_rse'); ?></label></th>

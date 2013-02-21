@@ -298,7 +298,7 @@ function hc_rse_display_events( $attibutes ){
 				$eventHTML .= '<tr>';
 				$eventHTML .= '    <td colspan="4" id="hc_rse_extra_info_' . $showevents . '_' . $event->id . '" class="hc_rse_extra_info hidden">';
 				//$eventHTML .=          apply_filters( 'the_content' , stripslashes($event->extra_info ) );
-				$eventHTML .=          stripslashes( $event->extra_info );
+				$eventHTML .=          apply_filters( 'the_content' , stripslashes( $event->extra_info ) );
 				$eventHTML .= '    </td>';
 			}
 			$eventHTML .= '</tr>';
@@ -398,7 +398,7 @@ function hc_rse_setup_custom_assets(){
  */
 function hc_rse_update_db_check() {
 	global $hc_rse_db_version;
-	if ( get_site_option( 'hc_rse_db_version' ) != $hc_rse_db_version ) {		
+	if ( get_site_option( 'hc_rse_db_version' ) != $hc_rse_db_version ) {
 		hc_rse_plugin_install();
 	}
 }
