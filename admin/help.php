@@ -14,6 +14,7 @@
 		<li><strong>upcoming-reverse</strong> - <?php _e( 'show only upcoming events in the reverse order.' , 'hc_rse' ); ?></li>
 	</ul>
 	<p><?php _e( 'For example, to show all past and upcoming events use this short code' , 'hc_rse' ); ?>: <strong>[hc_rse_events showevents='all']</strong></p>
+	<p><?php _e( 'To limit the number of events that are shown, you can use the numevents attribute' , 'hc_rse' ); ?>: <strong>[hc_rse_events numevents=3]</strong></p>
 	<h3><?php _e( 'Advanced' , 'hc_rse' ); ?></h3>
 	<p><?php _e( 'Be careful with these things, you may break stuff!' , 'hc_rse' ); ?></p>
 	<h4><?php _e( 'Choosing columns and their order' , 'hc_rse' ); ?></h4>
