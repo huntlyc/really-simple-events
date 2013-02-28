@@ -3,7 +3,7 @@
 Plugin Name: Really Simple Events
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Simple event module, just a title and start date/time needed!  You can, of course, provide extra information about the event if you wish.  This plugin was created for a bands/performers who do one off shows lasting a couple of hours rather than a few days, so event date ranges, custom post type and so on are not included.
-Version: 1.3.9
+Version: 1.4.0
 Author: Huntly Cameron
 Author URI: http://www.huntlycameron.co.uk
 License: GPL2
@@ -118,6 +118,14 @@ function widget_hc_rse_event_widget($args) {
 
 		}
 		$eventHTML .= '</ul>';
+
+		//Show link to events page if it's been selected in the widget options
+		$eventsPage = get_option( 'hc_rse_widget_event_page' , -1 );
+
+		if($eventsPage != -1){ //Page was selected
+			$eventHTML .= '<a href="' . get_page_link( $eventsPage ) . '" title="' . __( 'View Events' , 'hc_rse') . '">' . __( 'View Events' , 'hc_rse') . '</a>';
+		}
+
 	}else{
 		$eventHTML = __( "No Events", 'hc_rse' );
 	}
@@ -142,12 +150,14 @@ function hc_rse_widget_control( $args = array() , $params = array() ) {
 		update_option( 'hc_rse_widget_title' , $_POST['hc_rse_widget_title'] );
 		update_option( 'hc_rse_widget_event_limit' , $_POST['hc_rse_widget_event_limit'] );
 		update_option( 'hc_rse_widget_events' , $_POST['hc_rse_widget_events'] );
+		update_option( 'hc_rse_widget_event_page' , $_POST['hc_rse_widget_event_page'] );
 	}
 
 	//load options
 	$hc_rse_widget_title = get_option( 'hc_rse_widget_title' , 'Upcoming Events' );
 	$hc_rse_widget_event_limit = get_option( 'hc_rse_widget_event_limit' , -1 );
 	$hc_rse_widget_events = get_option( 'hc_rse_widget_events' , 'upcoming' );
+	$hc_rse_widget_event_page = get_option( 'hc_rse_widget_event_page' , -1 );
 
 	?>
 	<?php _e( 'Widget Title' , 'hc_rse' ); ?>:<br />
@@ -177,6 +187,17 @@ function hc_rse_widget_control( $args = array() , $params = array() ) {
 		<?php endfor; ?>
 	</select>
 	<br /><br />
+
+
+	<?php _e( 'Event Page Link' , 'hc_rse' ); ?>:<br />
+	<?php
+		$args = array('selected' => $hc_rse_widget_event_page,
+	    			  'name' => 'hc_rse_widget_event_page',
+	    			  'show_option_none' => __( 'No Link' , 'hc_rse' ),
+	    			  'option_none_value' => -1
+	    			  );
+	    wp_dropdown_pages( $args );
+	?>
 
 	<input type="hidden" name="submitted" value="1" />
 	<?php
