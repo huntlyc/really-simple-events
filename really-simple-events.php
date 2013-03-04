@@ -3,7 +3,7 @@
 Plugin Name: Really Simple Events
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Simple event module, just a title and start date/time needed!  You can, of course, provide extra information about the event if you wish.  This plugin was created for a bands/performers who do one off shows lasting a couple of hours rather than a few days, so event date ranges, custom post type and so on are not included.
-Version: 1.4.0
+Version: 1.4.1
 Author: Huntly Cameron
 Author URI: http://www.huntlycameron.co.uk
 License: GPL2
@@ -89,8 +89,8 @@ function widget_hc_rse_event_widget($args) {
 					   true );
 	wp_localize_script( "hc_rse_event_table" ,
 					    'objectL10n' ,
-					    array( 'MoreInfo' => __( 'More Info' , 'hc_rse' ),
-						 	   'HideInfo' => __( 'Hide Info' , 'hc_rse' )
+					    array( 'MoreInfo' => get_option( 'hc_rse_more_info_link' , __( 'More Info' , 'hc_rse' ) ),
+						 	   'HideInfo' => get_option( 'hc_rse_hide_info_link' , __( 'Hide Info' , 'hc_rse' ) )
 							     )
 					  );
 
@@ -123,7 +123,7 @@ function widget_hc_rse_event_widget($args) {
 		$eventsPage = get_option( 'hc_rse_widget_event_page' , -1 );
 
 		if($eventsPage != -1){ //Page was selected
-			$eventHTML .= '<a href="' . get_page_link( $eventsPage ) . '" title="' . __( 'View Events' , 'hc_rse') . '">' . __( 'View Events' , 'hc_rse') . '</a>';
+			$eventHTML .= '<a href="' . get_page_link( $eventsPage ) . '" title="' . __( 'View Events' , 'hc_rse') . '">' . get_option( 'hc_rse_view_events_link' , __( 'View Events' , 'hc_rse' ) )  . '</a>';
 		}
 
 	}else{
@@ -252,9 +252,9 @@ function hc_rse_display_events( $attibutes ){
 						   true );
 		wp_localize_script( "hc_rse_event_table" ,
 						    'objectL10n' ,
-						    array( 'MoreInfo' => __( 'More Info' , 'hc_rse' ),
-							 	   'HideInfo' => __( 'Hide Info' , 'hc_rse' )
- 							     )
+						    array( 'MoreInfo' => get_option( 'hc_rse_more_info_link' , __( 'More Infos' , 'hc_rse' ) ),
+						 	       'HideInfo' => get_option( 'hc_rse_hide_info_link' , __( 'Hide Info' , 'hc_rse' ) )
+							     )
 						  );
 	}
 
@@ -336,7 +336,7 @@ function hc_rse_display_events( $attibutes ){
 					case 'moreinfo':
 						$showMoreInfo = true;
 						$eventHTML .= '    <td>';
-						$eventHTML .=          ( $event->extra_info != "" ) ? '<a id="' . $showevents . '_more_' . $event->id . '" class="hc_rse_more_info" href="#more">' . __( 'More Info' , 'hc_rse' ) . '</a>': '&nbsp';
+						$eventHTML .=          ( $event->extra_info != "" ) ? '<a id="' . $showevents . '_more_' . $event->id . '" class="hc_rse_more_info" href="#more">' . get_option( 'hc_rse_more_info_link' , __( 'More Info' , 'hc_rse' ) ) . '</a>': '&nbsp';
 						$eventHTML .= '    </td>';
 						break;
 				}
