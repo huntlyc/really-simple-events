@@ -4,7 +4,7 @@ Donate link: http://www.tagonline.org.uk/howtodonate.asp
 Tags: events, gigs, performances
 Requires at least: 3.4.1
 Tested up to: 3.5.1
-Stable tag: 1.4.1
+Stable tag: 1.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -48,7 +48,10 @@ If you're willing to take 10-20 mins to do a translation (it's a small plugin), 
 
 == Changelog ==
 
-= 1.4.0 =
+= 1.4.2 =
+* Fixed: Special characters in the title and menu position conflicts
+
+= 1.4.1 =
 * New: Easily customize front-end link text
 
 = 1.4.0 =
@@ -118,7 +121,10 @@ Everythings all up to date with the wp plugin hosting
 
 == Upgrade Notice ==
 
-= 1.4.0 =
+= 1.4.2 =
+* Fixed: Special characters in the title and menu position conflicts
+
+= 1.4.1 =
 * New: Easily customize front-end link text
 
 = 1.4.0 =

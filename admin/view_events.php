@@ -31,7 +31,7 @@
 					<?php echo date( get_site_option( 'hc_rse_date_format', 'jS M Y' ) , strtotime( $event->start_date ) ); ?> - <?php echo date( get_site_option( 'hc_rse_time_format', 'H:i' ) , strtotime( $event->start_date ) ); ?>
 				</td>
 				<td>
-					<?php echo stripslashes($event->title); ?>
+					<?php echo apply_filters( 'the_content' , stripslashes( $event->title ) ); ?>
 					<section class="hidden">
 						<?php echo apply_filters( 'the_content' , stripslashes( $event->extra_info ) ); ?>
 					</section>

@@ -3,7 +3,7 @@
 Plugin Name: Really Simple Events
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Simple event module, just a title and start date/time needed!  You can, of course, provide extra information about the event if you wish.  This plugin was created for a bands/performers who do one off shows lasting a couple of hours rather than a few days, so event date ranges, custom post type and so on are not included.
-Version: 1.4.1
+Version: 1.4.2
 Author: Huntly Cameron
 Author URI: http://www.huntlycameron.co.uk
 License: GPL2
@@ -110,7 +110,7 @@ function widget_hc_rse_event_widget($args) {
 		foreach( $events as $event ){
 			$eventDate = date( get_option( 'hc_rse_date_format' ) ,
 					            strtotime( $event->start_date ));
-			$eventTitle = stripslashes( $event->title );
+			$eventTitle = apply_filters( 'the_content' , stripslashes( $event->title ) );
 
 			$eventHTML .= '    <li>';
 			$eventHTML .=          "$eventDate - $eventTitle";
@@ -330,7 +330,7 @@ function hc_rse_display_events( $attibutes ){
 						break;
 					case 'title':
 						$eventHTML .= '    <td class="hc_rse_title">';
-						$eventHTML .=          stripslashes( $event->title );
+						$eventHTML .=          apply_filters( 'the_content' , stripslashes( $event->title ) );
 						$eventHTML .= '    </td>';
 						break;
 					case 'moreinfo':
@@ -489,7 +489,7 @@ function hc_rse_plugin_install(){
 	global $hc_rse_db_version;
 	$table_name = $wpdb->prefix . HC_RSE_TABLE_NAME;
 
-$sql = "CREATE TABLE $table_name (
+	$sql = "CREATE TABLE IF NOT EXISTS $table_name (
         `id` mediumint(9) NOT NULL AUTO_INCREMENT,
         `start_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
         `show_time` int(1) DEFAULT NULL,
@@ -509,8 +509,6 @@ $sql = "CREATE TABLE $table_name (
 ////////////////////  ADMIN MENU FUNCTIONALITY ////////////////////////////////
 function hc_rse_build_admin_menu(){
 	$user_capability = 'manage_options';
-	$menu_position = 21; //just below Pages menu option
-
 
 	//Add Events main admin menu page
 	add_menu_page( __( 'Events' , 'hc_rse' ) ,
@@ -518,8 +516,7 @@ function hc_rse_build_admin_menu(){
 		           $user_capability ,
 		           'hc_rse_event' ,
 		           'hc_rse_events' ,
-		           plugins_url( 'images/icon.png' , __FILE__ ) ,
-		           $menu_position
+		           plugins_url( 'images/icon.png' , __FILE__ )
 		         );
 
 	//Add view events page to main admin menu.
