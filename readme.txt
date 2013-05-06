@@ -4,7 +4,7 @@ Donate link: http://www.tagonline.org.uk/howtodonate.asp
 Tags: events, gigs, performances
 Requires at least: 3.4.1
 Tested up to: 3.5.1
-Stable tag: 1.4.3
+Stable tag: 1.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,6 +20,7 @@ This plugin features a small widget that you can use to embed into your themes s
 For advanced users, you can show just upcoming,past or all events and change the ordering by using the following shortcode "[hc_rse_events showevents="upcoming|upcoming-reverse|past|past-reverse|all|all-reverse]".
 You also have the ability to select which columns get output when using the shortcode as well as their ordering and finally you can change the default date format.
 
+Check the Help/Usage page in the events admin menu for more details.
 
 == Installation ==
 
@@ -45,11 +46,16 @@ If you're willing to take 10-20 mins to do a translation (it's a small plugin), 
 3. The add/edit event page
 4. The settings page
 5. The widget configuration
+6. The widget with an event that has the link field filled in
 
 == Changelog ==
 
+= 1.4.4 =
+* New: link field for events
+* Fixed: Special characters in widget
+
 = 1.4.3 =
-* Fixed: Special characters in the admin 
+* Fixed: Special characters in the admin
 
 = 1.4.2 =
 * Fixed: Special characters in the title and menu position conflicts
@@ -124,8 +130,12 @@ Everythings all up to date with the wp plugin hosting
 
 == Upgrade Notice ==
 
+= 1.4.4 =
+* New: link field for events
+* Fixed: Special characters in widget
+
 = 1.4.3 =
-* Fixed: Special characters in the admin 
+* Fixed: Special characters in the admin
 
 = 1.4.2 =
 * Fixed: Special characters in the title and menu position conflicts

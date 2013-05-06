@@ -24,6 +24,7 @@
 		<li><strong>date</strong> - <?php _e( 'Date of the event, for instance: 21st December.' , 'hc_rse' ); ?></li>
 		<li><strong>time</strong> - <?php _e( 'Time of the event, for instance: 23:56.' , 'hc_rse' ); ?></li>
 		<li><strong>title</strong> - <?php _e( 'Title of the event, for instance: My Super Awesome Party!' , 'hc_rse' ); ?></li>
+		<li><strong>link</strong> - <?php _e( 'Link for the event' , 'hc_rse' ); ?></li>
 		<li><strong>moreinfo</strong> - <?php _e( 'Shows the more info link which the user can view the extra details you entered.' , 'hc_rse' ); ?></li>
 	</ul>
 	<h4><?php _e( 'CSS Styling' , 'hc_rse' ); ?></h4>
@@ -33,6 +34,7 @@
 		<li><strong>td.hc_rse_date</strong> - <?php _e( 'the table cell which holds the event date' , 'hc_rse' ); ?>.</li>
 		<li><strong>td.hc_rse_time</strong> - <?php _e( 'the table cell which holds the start time' , 'hc_rse' ); ?>.</li>
 		<li><strong>td.hc_rse_title</strong> - <?php _e( 'the table cell which holds the event title' , 'hc_rse' ); ?>.</li>
+		<li><strong>td.hc_rse_link</strong> - <?php _e( 'the table cell which holds the event link' , 'hc_rse' ); ?>.</li>
 		<li><strong>a.hc_rse_more_info</strong> - <?php _e( 'the more info link' , 'hc_rse' ); ?>.</li>
 		<li><strong>td.hc_rse_extra_info</strong> - <?php _e( 'the table cell which holds the event information' , 'hc_rse' ); ?>.</li>
 	</ul>

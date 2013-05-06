@@ -3,7 +3,7 @@
 Plugin Name: Really Simple Events
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Simple event module, just a title and start date/time needed!  You can, of course, provide extra information about the event if you wish.  This plugin was created for a bands/performers who do one off shows lasting a couple of hours rather than a few days, so event date ranges, custom post type and so on are not included.
-Version: 1.4.3
+Version: 1.4.4
 Author: Huntly Cameron
 Author URI: http://www.huntlycameron.co.uk
 License: GPL2
@@ -35,7 +35,7 @@ load_plugin_textdomain('hc_rse', '', 'really-simple-events/translations');
  * http://codex.wordpress.org/Creating_Tables_with_Plugins
  */
 global $hc_rse_db_version;
-$hc_rse_db_version = "1.2";
+$hc_rse_db_version = "1.4";
 
 define( 'HC_RSE_TABLE_NAME' , 'reallysimpleevents' );
 
@@ -65,6 +65,61 @@ wp_register_widget_control(
 //Add shortcode handler for our shortcode "[hc_rse_events]"
 add_shortcode( 'hc_rse_events' , 'hc_rse_display_events' );
 
+
+/**
+ * Build a link
+ *
+ * If link has the from (title)[link] get those vars and use them
+ * else just hope for the best and use what's provided.
+ *
+ * @param  string $link Can be (title)[link] or just a link
+ * @return string $html HTML anchor tag or empty string if no link
+ */
+function hc_rse_display_link($link){
+	$html = '<a href="{{link}}" title="{{title}}" target="_blank">{{title}}</a>';
+
+	$linkPieces = hc_rse_parse_link($link);
+
+	//return $link;
+	$html = preg_replace('#{{link}}#', ( ( isset( $linkPieces['link'] ) ) ? $linkPieces['link'] : '' ), $html);
+	$html = preg_replace('#{{title}}#', ( ( isset( $linkPieces['title'] ) ) ? $linkPieces['title'] : '' ), $html);
+
+
+
+	return $html;
+}
+
+
+
+/**
+ * Build a link
+ *
+ * Try to parse out a link and return the components as an assoc array.
+ *
+ * @param  string $link Can be (title)[link] or just a link
+ * @return assoc array with title and link
+ */
+function hc_rse_parse_link($link){
+	$linkPieces = array('title' => '', 'link' => '');
+
+	$matches = array();
+	if(preg_match('#\((.*)\)\[(.*)\]#', $link, $matches)){
+		$link = $matches[2];
+		if(!preg_match('#(http|https):\/\/.*#', $matches[2])){
+			$link = 'http://' . $link;
+		}
+		$linkPieces['link'] = $link;
+		$linkPieces['title'] = $matches[1];
+	}else{ //Take what they've given us as the link
+		if($link !== '' && !preg_match('#(http|https):\/\/.*#', $link)){
+			$link = 'http://' . $link;
+		}
+		$linkPieces['link'] = $link;
+		$linkPieces['title'] = $link;
+	}
+
+	return $linkPieces;
+}
 
 /**
  * Create a sidebar widget
@@ -112,10 +167,17 @@ function widget_hc_rse_event_widget($args) {
 					            strtotime( $event->start_date ));
 			$eventTitle = apply_filters( 'the_content' , stripslashes( $event->title ) );
 
-			$eventHTML .= '    <li>';
-			$eventHTML .=          "$eventDate - $eventTitle";
-			$eventHTML .= '    </li>';
 
+			if($event->link !== ''){
+				$eventLink = hc_rse_parse_link($event->link);
+				$eventHTML .= '    <li>';
+				$eventHTML .=          '<a href="' . $eventLink['link'] . '" title="' . stripslashes( $event->title ) . '">' . "$eventDate - $eventTitle" . '</a>';
+				$eventHTML .= '    </li>';
+			}else{ //No link
+				$eventHTML .= '    <li>';
+				$eventHTML .=          "$eventDate - $eventTitle";
+				$eventHTML .= '    </li>';
+			}
 		}
 		$eventHTML .= '</ul>';
 
@@ -131,7 +193,7 @@ function widget_hc_rse_event_widget($args) {
 	}
 
     echo $before_widget;
-    echo $before_title . $widgetTitle . $after_title;
+    echo $before_title . stripslashes($widgetTitle) . $after_title;
     echo $eventHTML;
     echo $after_widget;
 
@@ -161,7 +223,7 @@ function hc_rse_widget_control( $args = array() , $params = array() ) {
 
 	?>
 	<?php _e( 'Widget Title' , 'hc_rse' ); ?>:<br />
-	<input type="text" class="widefat" name="hc_rse_widget_title" value="<?php echo $hc_rse_widget_title; ?>"/>
+	<input type="text" class="widefat" name="hc_rse_widget_title" value="<?php echo stripslashes($hc_rse_widget_title); ?>"/>
 	<br /><br />
 
 	<?php _e( 'Show Events' , 'hc_rse' ); ?>:<br />
@@ -234,7 +296,7 @@ function hc_rse_display_events( $attibutes ){
 
 	extract( shortcode_atts( array( 'showevents' => 'upcoming' ,
 		                            'noassets' => 'false',
-		                            'columns' => 'date,time,title,moreinfo',
+		                            'columns' => 'date,time,title,link,moreinfo',
 		                            'numevents' => -1
 		                          ) ,
 			                 $attibutes
@@ -268,8 +330,6 @@ function hc_rse_display_events( $attibutes ){
 		//If we've got a list of cols, split them out
 		if( mb_strpos( $columns , ',' ) === false ){
 			//We might only have one column to show, make sure it's valid
-
-
 			if( !in_array( $columns , $defaultColList ) ){
 				$useDefaultColumns = true;
 			}
@@ -333,6 +393,11 @@ function hc_rse_display_events( $attibutes ){
 						$eventHTML .=          apply_filters( 'the_content' , stripslashes( $event->title ) );
 						$eventHTML .= '    </td>';
 						break;
+					case 'link':
+						$eventHTML .= '    <td class="hc_rse_link">';
+						$eventHTML .=          hc_rse_display_link( $event->link );
+						$eventHTML .= '    </td>';
+						break;
 					case 'moreinfo':
 						$showMoreInfo = true;
 						$eventHTML .= '    <td>';
@@ -346,7 +411,6 @@ function hc_rse_display_events( $attibutes ){
 				$eventHTML .= '</tr>';
 				$eventHTML .= '<tr>';
 				$eventHTML .= '    <td colspan="4" id="hc_rse_extra_info_' . $showevents . '_' . $event->id . '" class="hc_rse_extra_info hidden">';
-				//$eventHTML .=        stripslashes( $event->extra_info );
 				$eventHTML .=          apply_filters( 'the_content' , stripslashes( $event->extra_info ) );
 				$eventHTML .= '    </td>';
 			}
@@ -472,7 +536,7 @@ function hc_rse_update_db_check(){
 function hc_rse_first_run_check(){
 	if ( get_site_option( 'hc_rse_first_run' , 'fasly' ) === 'fasly' ) {
 		//Set site option so show we've run this plugin at least once.
-		add_site_option( 'hc_rse_first_run' , 'woot' );
+		update_site_option( 'hc_rse_first_run' , 'woot' );
 	}
 }
 
@@ -489,19 +553,20 @@ function hc_rse_plugin_install(){
 	global $hc_rse_db_version;
 	$table_name = $wpdb->prefix . HC_RSE_TABLE_NAME;
 
-	$sql = "CREATE TABLE IF NOT EXISTS $table_name (
-        `id` mediumint(9) NOT NULL AUTO_INCREMENT,
-        `start_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        `show_time` int(1) DEFAULT NULL,
-        `title` varchar(255) NOT NULL,
-        `extra_info` text,
-         UNIQUE KEY `id` (`id`)
+	$sql = "CREATE TABLE $table_name (
+        id mediumint(9) NOT NULL AUTO_INCREMENT,
+        start_date timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        show_time int(1) DEFAULT NULL,
+        title varchar(255) NOT NULL,
+        link varchar(255) DEFAULT '' NOT NULL,
+        extra_info text,
+        UNIQUE KEY id (id)
        )CHARSET=utf8 ";
 
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-	dbDelta( $sql );
+	$ret = dbDelta( $sql );
 
-	add_site_option( 'hc_rse_db_version' , $hc_rse_db_version );
+	update_site_option( 'hc_rse_db_version' , $hc_rse_db_version );
 	add_option( 'hc_rse_date_format' , 'jS M Y' );
 	add_option( 'hc_rse_time_format' , 'H:i' );
 }

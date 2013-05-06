@@ -1,0 +1,448 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Really-simple-events 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-02-21 21:23+0100\n"
+"PO-Revision-Date: 2013-05-05 21:10+0200\n"
+"Last-Translator: András Murányi <muranyia@gmail.com>\n"
+"Language-Team: András Murányi <muranyia@gmail.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__\n"
+"X-Poedit-Basepath: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/\n"
+"X-Poedit-Language: Hungarian\n"
+"X-Poedit-Country: HUNGARY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events\n"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:56
+msgid "Shows upcoming events"
+msgstr "Jövőbeli eseményeket mutatja"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:91
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:233
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:317
+msgid "More Info"
+msgstr "Részletek"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:92
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:234
+msgid "Hide Info"
+msgstr "Részletek elrejtése"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:121
+msgid "No Events"
+msgstr "Nincsenek események"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:152
+msgid "Widget Title"
+msgstr "Widget név"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:156
+msgid "Show Events"
+msgstr "Események"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:158
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:169
+msgid "All"
+msgstr "Mind"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:159
+msgid "All (Reverse Order)"
+msgstr "Mind (fordított sorrend)"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:160
+msgid "Upcoming"
+msgstr "Jövőbeli"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:161
+msgid "Upcoming (Reverse Order)"
+msgstr "Jövőbeli (fordított sorrend)"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:162
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:56
+msgid "Past"
+msgstr "Elmúlt"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:163
+msgid "Past (Reverse Order)"
+msgstr "Elmúlt (fordított sorrend)"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:167
+msgid "Number of Events"
+msgstr "Események száma"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:404
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:56
+msgid "Upcoming Events"
+msgstr "Jövőbeli események"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:405
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:48
+msgid "Events (Upcoming)"
+msgstr "Események (jövőbeli)"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:406
+msgid "Past Events"
+msgstr "Elmúlt események"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:407
+msgid "Events (Past)"
+msgstr "Események (elmúlt)"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:408
+msgid "Are you sure you want to delete this event?"
+msgstr "Biztosan törölni akarod ezt az eseményt?"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:483
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:484
+msgid "Events"
+msgstr "Események"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:494
+msgid "View Events"
+msgstr "Események megtekintése"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:495
+msgid "All Events"
+msgstr "Minden esemény"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:503
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:75
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:123
+msgid "Add Event"
+msgstr "Esemény hozzáadása"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:504
+msgid "Add New"
+msgstr "Új hozzáadása"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:510
+msgid "Events Settings"
+msgstr "Események beállításai"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:511
+msgid "Settings"
+msgstr "Beállítások"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:517
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/really-simple-events.php:518
+msgid "Help/Usage"
+msgstr "Súgó/útmutató"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:36
+msgid "Please enter a title"
+msgstr "Írj be egy nevet"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:38
+msgid "Date/Time should be in the following format: yyyy-mm-dd HH:MM"
+msgstr "A dátumot/időt ebben a formátumban kell megadni: éééé-hh-nn ÓÓ:PP"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:67
+msgid "Could not create event! HELP!!"
+msgstr "Impossible de créer l'événement! AIDE!"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:69
+msgid "Event Updated: "
+msgstr "Esemény módosítva:"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:75
+msgid "Edit Event"
+msgstr "Esemény szerkesztése"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:87
+msgid "Event Added: "
+msgstr "Esemény hozzáadva:"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:100
+msgid "Event Title"
+msgstr "Esemény neve"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:104
+msgid "Event Date/Time"
+msgstr "Esemény időpontja"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:110
+msgid "Show Event Time?"
+msgstr "Mutassa az óra/percet?"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:113
+msgid ""
+"(Keep un-checked if you are just concerned with dates and do not wish to "
+"show the time value for this event)"
+msgstr ""
+"(Ne jelöld be, ha csak a dátum a fontos, és nem akarod, hogy az óra és a "
+"perc is megjelenjen az esemény időpontjánál)"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:117
+msgid "Extra Event Info"
+msgstr "Kiegészítő információ az eseményről"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/add_event.php:123
+msgid "Update Event"
+msgstr "Esemény módosítása"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:40
+msgid "Edit"
+msgstr "Szerkeszt"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:41
+msgid "Delete"
+msgstr "Töröl"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:51
+msgid "Event Deleted"
+msgstr "Esemény törölve"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:63
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:82
+msgid "Date"
+msgstr "Dátum"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:63
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:82
+msgid "Title"
+msgstr "Név"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:71
+msgid "No upcoming events to show, go and "
+msgstr "Nincsenek megadva jövőbeli események,"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:71
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:75
+msgid "add one"
+msgstr "adj hozzá egyet"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/view_events.php:75
+msgid "No events to show, go and "
+msgstr "Nincsenek megjeleníthető események,"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:9
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:15
+msgid "Options Updated"
+msgstr "Beállítások módosítva"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:21
+msgid "Really Simple Event Settings"
+msgstr "Really Simple Events beállítások"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:28
+msgid "Not sure what to do? "
+msgstr "Nem vagy benne biztos, hogyan működik?"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:28
+msgid "Click here for more info"
+msgstr "Kattints ide bővebb infomációért"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:30
+msgid ""
+"You change change the format for the date and time via these options.  This "
+"is how it will appear when you use the plugin short-code to output the "
+"events."
+msgstr ""
+"Itt lehet beállítani a dátum és az időpont formátumát. Így fog megjelenni, "
+"amikor a plugin shortkód listázza az eseményeket."
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:31
+msgid "Here are a few common date patterns"
+msgstr "Íme néhány népszerű dátum formátum"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:37
+msgid "Here are few common time patterns"
+msgstr "Íme néhány időpont formátum"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:50
+msgid "Date Format"
+msgstr "Dátum formátum"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:54
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:63
+msgid "Accepts any "
+msgstr "Berható bármilyen"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:54
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:63
+msgid "PHP date format string"
+msgstr "PHP dátum formátum"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:59
+msgid "Time Format"
+msgstr "Időpont formátum"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/options.php:67
+msgid "Update Options"
+msgstr "Beállítások módosítása"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:2
+msgid "Help and Usage Instructions"
+msgstr "Súgó és használati útmutató"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:3
+msgid ""
+"Here you should find everything you need to get up and running with this "
+"plugin.  For any extra help, use the Wordpress forums or send me an email"
+msgstr ""
+"Itt megtalálható minden, ami a plugin használatához kellhet. Ha további "
+"segítségre van szükséged, nézd meg a Wordpress fórumokat vagy küldj emailt a "
+"fejlesztőnek"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:4
+msgid "Getting Started"
+msgstr "Első lépések"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:5
+msgid ""
+"Adding and editing events should be quite straight forward, it&#39;s "
+"worthwhile to note that if you don&#39;t provide any extra information for "
+"an event, the link will not show on the front end, although the empty table "
+"cell will remain"
+msgstr ""
+"Az események hozzáadása és szerkesztése többé-kevésbé magától értetődő módon "
+"működik. Érdemes megjegyezni viszont, hogy ha nem adsz meg kiegészítő "
+"információt egy eseményről, akkor link sem fog megjelenni a Wordpress "
+"felületén, a táblázatban viszont ott lesz az üres rublika"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:6
+msgid "Short Codes"
+msgstr "Shortkódok"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:7
+msgid "To show your upcoming events on a page or post just use this short code"
+msgstr ""
+"Ezzel a shortkóddal jelenítheted meg az eseményeket egy oldalon vagy "
+"bejegyzésben"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:7
+msgid ""
+"If you wish to show past events only, you can use the &#39;showevents&#39; "
+"attribute with one of the following values."
+msgstr ""
+"Ha csak a múltbeli eseményeket akarod megjeleníteni, használhatod a &#39;"
+"showevents&#39; attribútumot ezeknek az értékeknek a valamelyikével."
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:9
+msgid "show both past and upcoming events."
+msgstr "elmúlt és jövőbeli események mutatása."
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:10
+msgid "show both past and upcoming events ordered by newest to oldest."
+msgstr ""
+"elmúlt és jövőbeli események mutatása, először az újabbak, a végén a "
+"régebbiek."
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:11
+msgid "only show the events that have happened already."
+msgstr "csak az elmúlt események mutatása."
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:12
+msgid ""
+"only show the events that have happened already. In the Reverse order "
+"(oldest first)"
+msgstr ""
+"csak az elmúlt események mutatása, fordított sorrendben (először a "
+"régebbiek)."
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:13
+msgid ""
+"show only upcoming events (note this is the default behaviour when the "
+"showevents attribute is omitted)."
+msgstr ""
+"csak a jövőbeli események mutatása (az alapbelállítás, amikor nem szerepel a "
+"showevents attribútum)."
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:14
+msgid "show only upcoming events in the reverse order."
+msgstr "csak a jövőbeli események mutatása, fordított sorrendben."
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:16
+msgid "For example, to show all past and upcoming events use this short code"
+msgstr ""
+"Pédául, az elmúlt és jövőbeli események megjelenítéséhez ezt a shortkódot "
+"használd"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:17
+msgid "Advanced"
+msgstr "Haladó"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:18
+msgid "Be careful with these things, you may break stuff!"
+msgstr "Ezekkel csak óvatosan, mert elronthatsz bizonyos dolgokat!"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:19
+msgid "Choosing columns and their order"
+msgstr "Oszlopok és rendezésük beállítása"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:20
+msgid ""
+"You can choose and order the columns by using the columns attribute like so"
+msgstr "Így választhatod ki az oszlopokat és az oszlopok sorrendjét"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:21
+msgid "Valid column values are:"
+msgstr "Érvényes oszlop nevek:"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:23
+msgid "Date of the event, for instance: 21st December."
+msgstr "Esemény dátuma, pl.: December 21."
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:24
+msgid "Time of the event, for instance: 23:56."
+msgstr "Esemény időpontja, pl.: 23:56."
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:25
+msgid "Title of the event, for instance: My Super Awesome Party!"
+msgstr "Esemény neve, pl.: Az én csúcsszuper bulim!"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:26
+msgid ""
+"Shows the more info link which the user can view the extra details you "
+"entered."
+msgstr ""
+"Megjeleníti a Részletek linket, ami megjeleníti az általad megadott "
+"kiegészítő információt"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:28
+msgid "CSS Styling"
+msgstr "CSS formázás"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:29
+msgid ""
+"For theme developers, here are the event table css classes you can use to "
+"style the output"
+msgstr ""
+"Sablon fejlesztőknek: íme az események táblázat css osztályai, amiket a "
+"kimenet formázásához lehet használni"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:31
+msgid "the main event table"
+msgstr "a fő esemény táblázat"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:32
+msgid "the table cell which holds the event date"
+msgstr "az esemény dátumát tartalmazó rublika"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:33
+msgid "the table cell which holds the start time"
+msgstr "az esemény kezdő időpontját tartalmazó rublika"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:34
+msgid "the table cell which holds the event title"
+msgstr "az esemény nevét tartalmazó rublika"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:35
+msgid "the more info link"
+msgstr "a Részletek link"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:36
+msgid "the table cell which holds the event information"
+msgstr "a kiegészítő információkat tartalmazó rublika"
+
+#: /var/www/huntlywordpress.co.uk/wp-content/plugins/really-simple-events/admin/help.php:38
+msgid ""
+"You can also stop the custom CSS and JavaScript files being included in the "
+"page by using the &#39;noassets&#39; attribute. e.g. "
+msgstr ""
+"Meg lehet tiltani, hogy az alapértelmezett CSS és JavaScript fájlok "
+"betöltődjenek, a &#39;noassets&#39; attribútum használatával, pl.:"

@@ -8,6 +8,7 @@
 	$startDate = "";
 	$showTime = 0;
 	$extraInfo = "";
+	$link = "";
 
 	$table_name = $wpdb->prefix . HC_RSE_TABLE_NAME;
 	$dateFormatPattern = "#(\d{4})-(\d{2})-(\d{2})\s(\d{2})\:(\d{2})#";
@@ -22,6 +23,7 @@
 		$startDate = date( 'Y-m-d H:i' , strtotime( $event->start_date ) );
 		$showTime = $event->show_time;
 		$extraInfo = $event->extra_info;
+		$link = $event->link;
 	}
 
 	//Check post for other variables
@@ -31,6 +33,7 @@
 		if( isset( $_POST['start_date'] ) ) $startDate = $_POST['start_date'];
 		$showTime = (isset( $_POST['show_time'] ) && $_POST['show_time'] === "on" ) ? 1 : 0;
 		if( isset( $_POST['extra_info'] ) ) $extraInfo = $_POST['extra_info'];
+		if( isset( $_POST['link'] ) ) $link = $_POST['link'];
 
 		//create error msg if no title is provided
 		if( $title === "" ) $errorMsg .= __( 'Please enter a title' , 'hc_rse' ) . '<br/>';
@@ -43,7 +46,8 @@
 							    "title" => $title ,
 							    "start_date" => $startDate ,
 							    "show_time" => $showTime ,
-							    "extra_info" => $extraInfo
+							    "extra_info" => $extraInfo,
+							    "link" => $link
 							  );
 
 			if( isset( $_GET['edit_id'] ) && is_numeric( $_GET['edit_id'] ) ){
@@ -117,6 +121,15 @@
 					<th><label for="extra_info"><?php _e( 'Extra Event Info' , 'hc_rse' ); ?></label></th>
 					<td>
 						<?php wp_editor( stripslashes( $extraInfo ) , 'extra_info' , array( 'media_buttons' => true ) ); ?>
+					</td>
+				</tr>
+				<tr>
+					<th><label for="link"><?php _e( 'Event Link' , 'hc_rse' ); ?></label></th>
+					<td>
+						<input class="regular-text ltr" type="text" id="link" name="link" value="<?php echo stripslashes( $link ) ; ?>"/>
+						<p class="description">
+							<?php _e( 'Enter link as (link_text)[link_url].  e.g: (WordPress)[http://www.wordpress.org]' , 'hc_rse' ); ?><br/>
+						</p>
 					</td>
 				</tr>
 				<tr>

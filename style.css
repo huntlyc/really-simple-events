@@ -2,12 +2,17 @@
  * Custom styles for realy-simple-events plugin
  * Author: Huntly Cameron
  * Website: http://www.huntlycameron.co.uk/
- */ 
+ */
  .wrap #upcoming-events td.actions,
  .wrap #past-events td.actions{
 	 text-align: right;
  }
- 
+
  .hidden{
 	 display: none;
+ }
+
+ /** clear the margin on the p tag in the table **/
+ .hc_rse_title p{
+     margin: 0;
  }
