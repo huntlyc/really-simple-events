@@ -4,7 +4,7 @@ Donate link: http://www.tagonline.org.uk/howtodonate.asp
 Tags: events, gigs, performances
 Requires at least: 3.4.1
 Tested up to: 3.5.1
-Stable tag: 1.4.5
+Stable tag: 1.4.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,9 @@ If you're willing to take 10-20 mins to do a translation (it's a small plugin), 
 6. The widget with an event that has the link field filled in
 
 == Changelog ==
+
+= 1.4.6 =
+* Removed css on the td > p tag
 
 = 1.4.5 =
 * New: Hungarian translation
@@ -132,6 +135,9 @@ Everythings all up to date with the wp plugin hosting
 * Initial version
 
 == Upgrade Notice ==
+
+= 1.4.6 =
+* Removed css on the td > p tag
 
 = 1.4.5 =
 * New: Hungarian translation

@@ -11,8 +11,3 @@
  .hidden{
 	 display: none;
  }
-
- /** clear the margin on the p tag in the table **/
- .hc_rse_title p{
-     margin: 0;
- }
