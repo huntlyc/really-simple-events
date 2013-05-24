@@ -3,7 +3,7 @@
 Plugin Name: Really Simple Events
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Simple event module, just a title and start date/time needed!  You can, of course, provide extra information about the event if you wish.  This plugin was created for a bands/performers who do one off shows lasting a couple of hours rather than a few days, so event date ranges, custom post type and so on are not included.
-Version: 1.4.8
+Version: 1.4.9
 Author: Huntly Cameron
 Author URI: http://www.huntlycameron.co.uk
 License: GPL2
@@ -149,7 +149,7 @@ function widget_hc_rse_event_widget($args) {
 
 
 	//Get options (default if not set: all upcoming evebts)
-	$widgetTitle = get_option( 'hc_rse_widget_title' , 'Upcoming Events' );
+	$widgetTitle = stripslashes(get_option( 'hc_rse_widget_title' , 'Upcoming Events' ) );
 	$titleLink = get_option( 'hc_rse_widget_title_page', -1 );
 	$listType = get_option( 'hc_rse_widget_events' , 'upcoming' );
 	$showEvents = get_option( 'hc_rse_widget_event_limit' , -1 );
@@ -188,8 +188,7 @@ function widget_hc_rse_event_widget($args) {
 		$eventsPage = get_option( 'hc_rse_widget_event_page' , -1 );
 
 		if($eventsPage != -1){ //Page was selected
-			$eventHTML .= '<a href="' . get_page_link( $eventsPage ) . '" title="' . __( 'View Events' , 'hc_rse') . '">' . get_option( 'hc_rse_view_events_link' , __( 'View Events' , 'hc_rse' ) )  . '</a>';
-		}
+			$eventHTML .= '<a href="' . get_page_link( $eventsPage ) . '" title="' . __( 'View Events' , 'hc_rse') . '">' . stripslashes(get_option( 'hc_rse_view_events_link' , __( 'View Events' , 'hc_rse' ) ) ). '</a>';		}
 
 	}else{
 		$eventHTML = __( "No Events", 'hc_rse' );
@@ -231,7 +230,7 @@ function hc_rse_widget_control( $args = array() , $params = array() ) {
 	<input type="text" class="widefat" name="hc_rse_widget_title" value="<?php echo stripslashes($hc_rse_widget_title); ?>"/>
 	<br /><br />
 
-	<?php _e( 'Event Page Link' , 'hc_rse' ); ?>:<br />
+	<?php _e( 'Widget Title Link' , 'hc_rse' ); ?>:<br />
 	<?php
 		$args = array('selected' => $hc_rse_widget_title_page,
 	    			  'name' => 'hc_rse_widget_title_page',
@@ -332,8 +331,8 @@ function hc_rse_display_events( $attibutes ){
 						   true );
 		wp_localize_script( "hc_rse_event_table" ,
 						    'objectL10n' ,
-						    array( 'MoreInfo' => get_option( 'hc_rse_more_info_link' , __( 'More Info' , 'hc_rse' ) ),
-						 	       'HideInfo' => get_option( 'hc_rse_hide_info_link' , __( 'Hide Info' , 'hc_rse' ) )
+						    array( 'MoreInfo' => stripslashes ( get_option( 'hc_rse_more_info_link' , __( 'More Info' , 'hc_rse' ) ) ),
+						 	       'HideInfo' => stripslashes ( get_option( 'hc_rse_hide_info_link' , __( 'Hide Info' , 'hc_rse' ) ) )
 							     )
 						  );
 	}
@@ -419,7 +418,7 @@ function hc_rse_display_events( $attibutes ){
 					case 'moreinfo':
 						$showMoreInfo = true;
 						$eventHTML .= '    <td>';
-						$eventHTML .=          ( $event->extra_info != "" ) ? '<a id="' . $showevents . '_more_' . $event->id . '" class="hc_rse_more_info" href="#more">' . get_option( 'hc_rse_more_info_link' , __( 'More Info' , 'hc_rse' ) ) . '</a>': '&nbsp';
+						$eventHTML .=          ( $event->extra_info != "" ) ? '<a id="' . $showevents . '_more_' . $event->id . '" class="hc_rse_more_info" href="#more">' . stripslashes( get_option( 'hc_rse_more_info_link' , __( 'More Info' , 'hc_rse' ) ) ). '</a>': '&nbsp';
 						$eventHTML .= '    </td>';
 						break;
 				}
