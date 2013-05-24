@@ -70,7 +70,7 @@
 					<label for="hc_rse_date_format"><?php _e( 'Date Format' , 'hc_rse' ); ?></label>
 				</th>
 				<td>
-					<input type="text" class="regular-text" name="hc_rse_date_format" id="hc_rse_date_format" value="<?php echo get_option( 'hc_rse_date_format' ); ?>"/>
+					<input type="text" class="regular-text" name="hc_rse_date_format" id="hc_rse_date_format" value="<?php echo stripslashes( get_option( 'hc_rse_date_format' ) ); ?>"/>
 					<p class="description"><?php _e( 'Accepts any ' , 'hc_rse' ); ?> <a href="http://php.net/manual/en/function.date.php" target="_blank"><?php _e( 'PHP date format string' , 'hc_rse' ); ?></a></p>
 				</td>
 			</tr>
@@ -79,7 +79,7 @@
 					<label for="hc_rse_time_format"><?php _e( 'Time Format' , 'hc_rse' ); ?></label>
 				</th>
 				<td>
-					<input type="text" class="regular-text" name="hc_rse_time_format" id="hc_rse_time_format" value="<?php echo get_option( 'hc_rse_time_format' ); ?>"/>
+					<input type="text" class="regular-text" name="hc_rse_time_format" id="hc_rse_time_format" value="<?php echo stripslashes( get_option( 'hc_rse_time_format' ) ); ?>"/>
 					<p class="description"><?php _e( 'Accepts any ' , 'hc_rse' ); ?> <a href="http://php.net/manual/en/function.date.php" target="_blank"><?php _e( 'PHP date format string' , 'hc_rse' ); ?></a></p>
 				</td>
 			</tr>
@@ -88,7 +88,7 @@
 					<label for="hc_rse_more_info_link"><?php _e( 'More Info Link Text' , 'hc_rse' ); ?></label>
 				</th>
 				<td>
-					<input type="text" class="regular-text" name="hc_rse_more_info_link" id="hc_rse_more_info_link" value="<?php echo get_option( 'hc_rse_more_info_link' , __( 'More Info' , 'hc_rse' ) ); ?>"/>
+					<input type="text" class="regular-text" name="hc_rse_more_info_link" id="hc_rse_more_info_link" value="<?php echo stripslashes( get_option( 'hc_rse_more_info_link' , __( 'More Info' , 'hc_rse' ) ) ); ?>"/>
 					<p class="description"><?php _e( 'Text for the more info link ' , 'hc_rse' ); ?></p>
 				</td>
 			</tr>
@@ -97,7 +97,7 @@
 					<label for="hc_rse_hide_info_link"><?php _e( 'Hide Info Link Text' , 'hc_rse' ); ?></label>
 				</th>
 				<td>
-					<input type="text" class="regular-text" name="hc_rse_hide_info_link" id="hc_rse_hide_info_link" value="<?php echo get_option( 'hc_rse_hide_info_link' , __( 'Hide Info' , 'hc_rse' ) ); ?>"/>
+					<input type="text" class="regular-text" name="hc_rse_hide_info_link" id="hc_rse_hide_info_link" value="<?php echo stripslashes( get_option( 'hc_rse_hide_info_link' , __( 'Hide Info' , 'hc_rse' ) ) ); ?>"/>
 					<p class="description"><?php _e( 'Text for the hide info link ' , 'hc_rse' ); ?></p>
 				</td>
 			</tr>
@@ -106,7 +106,7 @@
 					<label for="hc_rse_view_events_link"><?php _e( 'View All Events Link Text' , 'hc_rse' ); ?></label>
 				</th>
 				<td>
-					<input type="text" class="regular-text" name="hc_rse_view_events_link" id="hc_rse_view_events_link" value="<?php echo get_option( 'hc_rse_view_events_link' , __( 'View Events' , 'hc_rse' ) ); ?>"/>
+					<input type="text" class="regular-text" name="hc_rse_view_events_link" id="hc_rse_view_events_link" value="<?php echo stripslashes( get_option( 'hc_rse_view_events_link' , __( 'View Events' , 'hc_rse' ) ) ); ?>"/>
 					<p class="description"><?php _e( 'Text for the view all events link in the widget' , 'hc_rse' ); ?></p>
 				</td>
 			</tr>
