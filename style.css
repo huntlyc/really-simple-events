@@ -11,3 +11,10 @@
  .hidden{
 	 display: none;
  }
+
+
+/** Cal can go under the admin bar in the backend, up the cal z-index **/
+ .wp-admin #ui-datepicker-div{
+    z-index: 100000 !important;
+
+ }

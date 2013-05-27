@@ -4,7 +4,7 @@ Donate link: http://www.tagonline.org.uk/howtodonate.asp
 Tags: events, gigs, performances
 Requires at least: 3.4.1
 Tested up to: 3.5.1
-Stable tag: 1.5
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,9 @@ If you're willing to take 10-20 mins to do a translation (it's a small plugin), 
 6. The widget with an event that has the link field filled in
 
 == Changelog ==
+
+= 1.5.1 =
+* fixed: pop-up calendar sits behind admin bar
 
 = 1.5 =
 * fixed: widget event title breaking onto new line.
@@ -150,6 +153,9 @@ Everythings all up to date with the wp plugin hosting
 * Initial version
 
 == Upgrade Notice ==
+
+= 1.5.1 =
+* fixed: pop-up calendar sits behind admin bar
 
 = 1.5 =
 Fixed: widget event title breaking onto new line.
