@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Template &middot; Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 60px;
+      }
+
+      /* Custom container */
+      .container {
+        margin: 0 auto;
+        max-width: 1000px;
+      }
+      .container > hr {
+        margin: 60px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 80px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 100px;
+        line-height: 1;
+      }
+      .jumbotron .lead {
+        font-size: 24px;
+        line-height: 1.25;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+
+
+      /* Customize the navbar links to be fill the entire space of the .navbar */
+      .navbar .navbar-inner {
+        padding: 0;
+      }
+      .navbar .nav {
+        margin: 0;
+        display: table;
+        width: 100%;
+      }
+      .navbar .nav li {
+        display: table-cell;
+        width: 1%;
+        float: none;
+      }
+      .navbar .nav li a {
+        font-weight: bold;
+        text-align: center;
+        border-left: 1px solid rgba(255,255,255,.75);
+        border-right: 1px solid rgba(0,0,0,.1);
+      }
+      .navbar .nav li:first-child a {
+        border-left: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      .navbar .nav li:last-child a {
+        border-right: 0;
+        border-radius: 0 3px 3px 0;
+      }
+    </style>
+    <link href="bootstrap-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="magnific-popup.css">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+            <li><a target="_blank" href="http://wordpress.org/plugin/really-simple-events">Plugin Home</a></li>
+            <li><a target="_blank" href="http://wordpress.org/support/plugin/really-simple-events">Support Forum</a></li>
+            <li><a target="_blank" href="http://www.github.com/huntlyc/really-simple-events">Code</a></li>
+            <li><a href="http://www.twitter.com/huntlyc">Contact</a></li>
+        </ul>
+        <h3 class="muted">Really Simple Events</h3>
+      </div>
+
+      <!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>Simple Events!</h1>
+        <p class="lead">Simple event module, just a title and start date/time needed! You can, of course, provide extra information about the event if you wish. This plugin was created for bands/performers who do one-off shows lasting a couple of hours.</p>
+        <a class="btn btn-large btn-success" href="http://downloads.wordpress.org/plugin/really-simple-events.zip">Download Now</a>
+      </div>
+
+      <hr>
+
+      <!-- Example row of columns -->
+      <div class="row-fluid">
+        <div class="span4">
+          <h2>Simple Event Table</h2>
+          <p>Simple list of your events, you can add custom links and extra information if required.  You can even choose to show only upcoming/past or all of your events!</p>
+          <a class="popupimg" href="img/event-table.jpg"><img src="img/event-table.jpg" alt="Screenshot of event table"></a>
+        </div>
+        <div class="span4">
+          <h2>Simple Creation</h2>
+          <p>Quickly and easlily add your events!  Most fields are optional. Easily add extra information by using the HTML editor, it's just the same as creating pages and posts!  </p>
+          <a class="popupimg" href="img/add-event.jpg"><img src="img/add-event.jpg" alt="Screenshot of add event admin screen"></a>
+       </div>
+        <div class="span4">
+          <h2>Sidebar Widget</h2>
+          <p>Everyone loves widgets!  You can have one too! Customize the title, the number of events, you can even set a link to your events page, or not, its up to you!</p>
+          <a class="popupimg" href="img/widget.jpg"><img src="img/widget.jpg" alt="Screenshot of the Widget"></a>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="footer">
+        <p>Plugin created and maintained by <a href="http://www.huntlycameron.co.uk/" title="My Website!" target="_blank">Huntly Cameron</a></p>
+      </div>
+
+    </div> <!-- /container -->
+    <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script>
+        jQuery(document).ready(function(){
+            jQuery('a.popupimg').magnificPopup({type:'image'});
+        })
+    </script>
+  </body>
+</html>
